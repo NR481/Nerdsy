@@ -7,6 +7,7 @@ product_routes = Blueprint('products', __name__, url_prefix="/products")
 @product_routes.route('/')
 def index():
   products = Product.query.all()
+
   all_products = [
     {
       "id": item.id,
@@ -22,3 +23,4 @@ def index():
     for item in products
   ]
   return jsonify( all_products )
+
