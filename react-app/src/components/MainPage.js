@@ -8,7 +8,7 @@ const MainPage = () => {
 
   useEffect(() => {
     dispatch(allProducts())
-  })
+  }, [dispatch])
 
 
   return (
