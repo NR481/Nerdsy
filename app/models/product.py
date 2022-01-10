@@ -14,5 +14,5 @@ class Product(db.Model):
   userId = db.Column(db.Integer, db.ForeignKey('users.id'))
 
   user = db.relationship('User', back_populates='products')
-  cart_item = db.relationship('CartItem', back_populates='product')
+  cart_items = db.relationship('CartItem', back_populates='product')
   comments = db.relationship('Comment', back_populates='product')

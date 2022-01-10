@@ -24,6 +24,7 @@ def upgrade():
     sa.Column('cartId', sa.Integer(), nullable=False),
     sa.Column('quantity', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['cartId'], ['shopping_carts.id'], ),
+    sa.ForeignKeyConstraint(['productId'], ['products.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
