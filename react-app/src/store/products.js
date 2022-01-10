@@ -17,7 +17,7 @@ const productsReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_PRODUCTS:
       newState = { ...state };
-      action.products.forEach(product => {
+      action.products.products.forEach(product => {
         newState[product.id] = product
       })
       return newState;
