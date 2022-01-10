@@ -2,7 +2,7 @@ const GET_PRODUCTS = 'products/GET_PRODUCTS';
 
 const getAllProducts = (products) => ({
   type: GET_PRODUCTS,
-  payload: products
+  products
 });
 
 export const allProducts = () => async (dispatch) => {
@@ -17,7 +17,9 @@ const productsReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_PRODUCTS:
       newState = { ...state };
-      newState.products = action.payload.products;
+      action.products.forEach(product => {
+        newState[product.id] = product
+      })
       return newState;
     default:
       return state;
