@@ -23,8 +23,6 @@ const Comments = ({ product }) => {
         dispatch(allUsers())
     }, [dispatch])
 
-    console.log(product)
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newComment = {
