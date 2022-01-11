@@ -8,7 +8,6 @@ const EditCommentButton = ({ user, signedInUser, comment, rating }) => {
   const [showForm, setShowForm] = useState(false)
   const dispatch = useDispatch()
 
-  console.log(comment.id)
   const handleSubmit = async (e) => {
     e.preventDefault()
     const newComment = {
@@ -18,6 +17,7 @@ const EditCommentButton = ({ user, signedInUser, comment, rating }) => {
       userId: signedInUser.id
     }
     await dispatch(commentEdit(newComment, comment?.id))
+    setShowForm(!showForm)
   }
 
   const handleClick = (e) => {
