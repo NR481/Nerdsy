@@ -3,12 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { allProducts } from "../store/products";
 import AddProductModal from "./addProduct/addProductModal";
-import DeleteProduct from "./DeleteSongButton";
+import DeleteProduct from "./DeleteProductButton";
 
 
 const MainPage = () => {
   const productObj = useSelector(state => state.products)
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user)
 
   useEffect(() => {
     dispatch(allProducts())
@@ -32,8 +33,14 @@ const MainPage = () => {
               <img src={product?.imageUrl}/>
             </Link>
             <div> ${product.price} </div>
+            {sessionUser?.id === product?.userId && (
+              <div><DeleteProduct id={product?.id}/></div>
+            )}
             
+
           <DeleteProduct id={product?.id}/>
+
+            
 
           </div>
         ))
