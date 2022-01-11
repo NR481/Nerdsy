@@ -1,8 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, TextAreaField
-from wtforms.validators import DataRequired
+from wtforms import StringField, IntegerField, TextAreaField, FileField
+from wtforms.validators import DataRequired, Email, ValidationError
 
-class AddProductForm(FlaskForm):
+
+class EditProductForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
     price = IntegerField('price', validators=[DataRequired()])
     description = TextAreaField('description')

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { allProducts } from "../store/products";
 import AddProductModal from "./addProduct/addProductModal";
 import DeleteProduct from "./DeleteProductButton";
+import EditProductModal from "./editProduct/editProductModal";
 
 
 const MainPage = () => {
@@ -34,11 +35,12 @@ const MainPage = () => {
             </Link>
             <div> ${product.price} </div>
             {sessionUser?.id === product?.userId && (
-              <div><DeleteProduct id={product?.id}/></div>
+              <div>
+                <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} />
+                <DeleteProduct id={product?.id}/>
+              </div>
             )}
             
-
-          <DeleteProduct id={product?.id}/>
 
             
 
