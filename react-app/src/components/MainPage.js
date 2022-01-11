@@ -5,6 +5,7 @@ import { allProducts } from "../store/products";
 import AddProductModal from "./addProduct/addProductModal";
 import { addToCart } from "../store/shoppingCart";
 import DeleteProduct from "./DeleteProductButton";
+import EditProductModal from "./editProduct/editProductModal";
 
 
 const MainPage = () => {
@@ -40,7 +41,7 @@ const MainPage = () => {
             <Link to={`/products/${product.id}`}>
               <img src={product?.imageUrl} />
             </Link>
-            <div> ${product.price} </div>
+            <div>{product.price}</div>
             <button
               type="button"
               value={product}
@@ -53,6 +54,7 @@ const MainPage = () => {
             </button>
             {sessionUser?.id === product?.userId && (
               <div>
+                <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} />
                 <DeleteProduct id={product?.id} />
               </div>
             )}

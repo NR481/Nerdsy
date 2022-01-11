@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { productComments } from "../store/comments";
 import { allUsers } from "../store/session";
 import { addNewComment } from "../store/comments";
+import EditCommentButton from "./EditCommentButton";
 
 const Comments = ({ product }) => {
     const dispatch = useDispatch()
@@ -23,6 +24,11 @@ const Comments = ({ product }) => {
         dispatch(allUsers())
     }, [dispatch])
 
+    const resetForm = () => {
+        setComment('')
+        setRating('5')
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newComment = {
@@ -32,6 +38,7 @@ const Comments = ({ product }) => {
             userId: signedInUser.id
         }
         await dispatch(addNewComment(newComment))
+        resetForm()
     }
 
     let users;
@@ -56,6 +63,12 @@ const Comments = ({ product }) => {
                     <div>
                         <p>{`${users[comment?.userId - 1]?.firstName} ${users[comment?.userId - 1]?.lastName}`}</p>
                         <p>{comment?.comment}</p>
+                        <EditCommentButton
+                            user={users[comment?.userId-1]}
+                            signedInUser={signedInUser}
+                            comment={comment}
+                            rating={comment?.rating}
+                        />
                     </div>
                 ))
             }

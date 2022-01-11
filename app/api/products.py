@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
 from app.models import Comment, Product, db
 from app.forms import AddProductForm
+# from app.forms import EditProductForm
 
 product_routes = Blueprint('products', __name__)
 
@@ -47,3 +48,22 @@ def delete_product(id):
   db.session.delete(product)
   db.session.commit()
   return {"Delete":"Success"}
+
+
+@product_routes.route('/<int:id>', methods=['PUT'])
+def edit_product(id):
+  product = Product.query.get(id)
+  form = AddProductForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if form.validate_on_submit():
+    product.name=form.data['name'],
+    product.price=form.data['price'],
+    product.description=form.data['description'],
+    product.imageUrl=form.data['imageUrl'],
+    product.rating=form.data['rating'],
+    product.category=form.data['category'],
+    product.franchise=form.data['franchise']
+    db.session.commit()
+    return product.to_dict()
+
+  
