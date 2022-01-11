@@ -2,6 +2,7 @@ const GET_PRODUCTS = "products/GET_PRODUCTS";
 const GET_CART = "products/GET_PRODUCTS";
 const ADD_PRODUCT = 'products/ADD_PRODUCT'
 const DELETE_PRODUCT = 'products/DELETE_PRODUCT'
+const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
 
 const getAllProducts = (products) => ({
   type: GET_PRODUCTS,
@@ -20,6 +21,11 @@ const addAProduct = (product) =>({
 
 const deleteProduct = (product) => ({
   type: DELETE_PRODUCT,
+  product
+})
+
+const editAProduct = (product) => ({
+  type: EDIT_PRODUCT,
   product
 })
 
@@ -59,6 +65,18 @@ export const deleteAProduct = (id) => async(dispatch) => {
   }
 }
 
+export const editProduct = (product, id) => async(dispatch) => {
+  const response = await fetch(`/api/products/${id}`, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(product)
+  })
+  if(response.ok) {
+    const product = await response.json()
+    dispatch(editAProduct(product))
+  }
+}
+
 
 
 
@@ -86,6 +104,11 @@ const productsReducer = (state = {}, action) => {
       newState = {...state}
       console.log(newState[action.product])
       delete newState[action.product]
+      return newState
+
+    case EDIT_PRODUCT:
+      newState = {...state}
+      newState[action.product.id] = action.product
       return newState
 
     default:
