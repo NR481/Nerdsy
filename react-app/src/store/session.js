@@ -116,7 +116,7 @@ export default function reducer(state = initialState, action) {
   let newState;
   switch (action.type) {
     case SET_USER:
-      return { user: action.payload }
+      return { user: action.payload, users: { ...state.users }}
     case REMOVE_USER:
       return { user: null, users: {...state.users }}
     case GET_USERS:
