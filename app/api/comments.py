@@ -22,3 +22,20 @@ def add_comment():
     db.session.add(comment)
     db.session.commit()
     return comment.to_dict()
+
+@comment_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def edit_comment(id):
+  form = CommentForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  edited_comment = Comment.query.get(id)
+  print(form.data)
+
+  if form.validate_on_submit():
+    edited_comment.comment = form.data['comment']
+    edited_comment.rating = form.data['rating']
+    edited_comment.productId = form.data['productId']
+    edited_comment.userId = current_user.id
+
+    db.session.commit()
+    return edited_comment.to_dict()

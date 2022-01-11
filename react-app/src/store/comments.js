@@ -1,5 +1,6 @@
 const GET_COMMENTS = 'comments/GET_COMMENTS'
 const ADD_COMMENT = 'comments/ADD_COMMENT'
+const EDIT_COMMENT = 'comments/EDIT_COMMENT'
 
 const getProductComments = (comments) => ({
     type: GET_COMMENTS,
@@ -8,6 +9,11 @@ const getProductComments = (comments) => ({
 
 const addComment = (comment) => ({
     type: ADD_COMMENT,
+    comment
+})
+
+const editComment = (comment) => ({
+    type: EDIT_COMMENT,
     comment
 })
 
@@ -28,8 +34,19 @@ export const addNewComment = (comment) => async (dispatch) => {
     const data = await res.json()
     dispatch(addComment(data))
     return data
-
 }
+
+export const commentEdit = (comment, id) => async (dispatch) => {
+    const res = await fetch(`/api/comments/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(comment)
+    });
+    const data = await res.json()
+    dispatch(editComment(data))
+    return data
+}
+
 
 const commentsReducer = (state = {}, action) => {
     let newState;
@@ -42,7 +59,10 @@ const commentsReducer = (state = {}, action) => {
             return newState;
         case ADD_COMMENT:
             return { ...state, [action.comment.id]: action.comment }
-
+        case EDIT_COMMENT:
+            newState = { ...state }
+            newState[action.comment.id] = action.comment
+            return newState;
         default:
             return state;
     }
