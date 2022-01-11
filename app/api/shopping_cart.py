@@ -22,6 +22,7 @@ def shopping_cart(user_id):
   cartItems = CartItem.query.filter(CartItem.cartId == cart['id']).all()
   cartItems = [item.to_dict() for item in cartItems]
 
+  newTotal = 0
   for item in cartItems:
     product = Product.query.get(item['productId'])
     product = product.to_dict()
