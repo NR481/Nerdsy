@@ -3,7 +3,7 @@ from flask_login import current_user, login_required
 from app.models import Comment, Product, db
 from app.forms import AddProductForm
 
-product_routes = Blueprint('products', __name__, url_prefix="/products")
+product_routes = Blueprint('products', __name__)
 
 @product_routes.route('/')
 def index():
@@ -39,4 +39,3 @@ def add_product():
     db.session.commit()
 
     return product.to_dict()
-

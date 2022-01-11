@@ -6,10 +6,9 @@ const getCart = (cart) => ({
   cart,
 });
 
-const addCart = (cart, cartItem) => ({
+const addCart = (cartItems) => ({
   type: ADD_ITEM,
-  cart,
-  cartItem
+  cartItems
 })
 
 export const getShoppingCart = (userId) => async (dispatch) => {
@@ -20,16 +19,18 @@ export const getShoppingCart = (userId) => async (dispatch) => {
 
 export const addToCart = (productId, userId) => async (dispatch) => {
   const response = await fetch(`/api/shopping_cart/${userId}/${productId}`, {
-    method: "Post",
+    method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
+    body: JSON.stringify({
+      userId,
+      productId
+    }),
   });
 
   const data = await response.json()
-  const cart = data.cart
-  const cartItem = data.cartItem
-  dispatch(addCart(cart, cartItem))
+  dispatch(addCart(data))
 };
 
 const shoppingCartReducer = (state = {}, action) => {
@@ -42,6 +43,8 @@ const shoppingCartReducer = (state = {}, action) => {
 
     case ADD_ITEM:
       newState = { ...state };
+      newState["cartItems"] = action.cartItems
+      return newState
     default:
       return state;
   }

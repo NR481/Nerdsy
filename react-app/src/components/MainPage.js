@@ -8,8 +8,8 @@ const MainPage = () => {
   const productObj = useSelector(state => state.products)
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch();
-
   useEffect(() => {
+    console.log(user)
     dispatch(allProducts())
   }, [dispatch])
 
@@ -31,7 +31,7 @@ const MainPage = () => {
       <h2>Featured Items</h2>
       {products?.length > 0 &&
         products.map((product) => (
-          <span>
+          <span key={product.id}>
             <img src={product?.imageUrl} />
             <button
               type="button"
