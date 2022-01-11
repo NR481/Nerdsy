@@ -64,12 +64,15 @@ const Comments = ({ product }) => {
                     <div>
                         <p>{`${users[comment?.userId - 1]?.firstName} ${users[comment?.userId - 1]?.lastName}`}</p>
                         <p>{comment?.comment}</p>
-                        <EditCommentModal
+                        {signedInUser?.id === comment?.userId && (
+                            <EditCommentModal
                             user={users[comment?.userId-1]}
                             signedInUser={signedInUser}
                             comment={comment}
                             rating={comment?.rating}
                         />
+                        )}
+                        
                     </div>
                 ))
             }
