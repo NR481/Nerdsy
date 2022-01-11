@@ -18,7 +18,7 @@ const Comments = ({ product }) => {
     }, [dispatch])
 
     const users = Object.values(usersObj)
-    console.log(users)
+
     const comments = Object.values(commentsObj);
     const productComment = comments?.filter(comment => {
         return +comment.productId === +product?.id
