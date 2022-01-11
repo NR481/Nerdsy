@@ -33,6 +33,7 @@ const EditProduct = ({id, showModal, editName, editPrice, editDescription, editI
     return (
     <div>
         <form onSubmit={onSubmit}>
+            <p>name</p>
             <input 
              className="text"
              type="text"
@@ -40,7 +41,7 @@ const EditProduct = ({id, showModal, editName, editPrice, editDescription, editI
              onChange={e => setName(e.target.value)}
              required
             />
-
+            <p>price</p>
             <input 
              className="text"
              type="text"
@@ -48,7 +49,7 @@ const EditProduct = ({id, showModal, editName, editPrice, editDescription, editI
              onChange={e => setPrice(e.target.value)}
              required
             />
-
+            <p>description</p>
             <textarea 
              className="text"
              type="text"
@@ -56,7 +57,7 @@ const EditProduct = ({id, showModal, editName, editPrice, editDescription, editI
              onChange={e => setDescription(e.target.value)}
              
             />
-
+            <p>image.jpg</p>
             <input 
              className="text"
              type="text"
@@ -64,7 +65,7 @@ const EditProduct = ({id, showModal, editName, editPrice, editDescription, editI
              onChange={e => setImageUrl(e.target.value)}
              required
             />
-
+            <p>rating</p>
             <input 
              className="text"
              type="text"
@@ -72,7 +73,7 @@ const EditProduct = ({id, showModal, editName, editPrice, editDescription, editI
              onChange={e => setRating(e.target.value)}
              
             />
-
+            <p>category</p>
             <input 
              className="text"
              type="text"
@@ -80,7 +81,7 @@ const EditProduct = ({id, showModal, editName, editPrice, editDescription, editI
              onChange={e => setCategory(e.target.value)}
              
             />
-
+            <p>franchise</p>
             <input 
              className="text"
              type="text"
