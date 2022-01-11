@@ -25,6 +25,7 @@ export const allProducts = () => async (dispatch) => {
   return data;
 };
 
+
 export const getShoppingCart = (userID) => async (dispatch) => {
   const response = await fetch(`/api/shopping_cart/${userID}`);
   const cart = await response.json();
@@ -32,7 +33,7 @@ export const getShoppingCart = (userID) => async (dispatch) => {
 };
 
 export const addProduct = (product) => async (dispatch) => {
-  const response = await fetch('/api/products', {
+  const response = await fetch('/api/products/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(product)
