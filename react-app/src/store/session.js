@@ -118,9 +118,9 @@ export default function reducer(state = initialState, action) {
     case SET_USER:
       return { user: action.payload }
     case REMOVE_USER:
-      return { user: null, users: {...state.users }}
+      return { user: null, users: { ...state.users }}
     case GET_USERS:
-      newState = { ...state }
+      newState = { ...state, users: { ...state.users } }
       action.users.users.forEach(user => {
         newState.users[user.id] = user
       })
