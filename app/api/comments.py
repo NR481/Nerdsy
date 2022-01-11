@@ -29,7 +29,6 @@ def edit_comment(id):
   form = CommentForm()
   form['csrf_token'].data = request.cookies['csrf_token']
   edited_comment = Comment.query.get(id)
-  print(form.data)
 
   if form.validate_on_submit():
     edited_comment.comment = form.data['comment']
@@ -39,3 +38,11 @@ def edit_comment(id):
 
     db.session.commit()
     return edited_comment.to_dict()
+
+@comment_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_comment(id):
+  comment = Comment.query.get(id)
+  db.session.delete(comment)
+  db.session.commit()
+  return {"Delete":"Success"}
