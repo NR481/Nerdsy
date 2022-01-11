@@ -29,7 +29,7 @@ const MainPage = () => {
             <Link to={`/products/${product.id}`}>
               <img src={product?.imageUrl}/>
             </Link>
-            <div> {product.price} </div>
+            <div> ${product.price} </div>
           </div>
         ))
       }
