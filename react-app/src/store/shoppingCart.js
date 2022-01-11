@@ -39,7 +39,7 @@ const shoppingCartReducer = (state = {}, action) => {
     case GET_CART:
       newState = { ...state };
       newState["cart"] = action.cartData.cart;
-      newState['cartItems'] = action.cartData.cart;
+      newState['cartItems'] = action.cartData.cartItems;
       return newState;
 
     case ADD_ITEM:
