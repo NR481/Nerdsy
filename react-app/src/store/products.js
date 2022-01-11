@@ -45,7 +45,6 @@ export const addProduct = (product) => async (dispatch) => {
     body: JSON.stringify(product)
   })
   const data = await response.json()
-  console.log(response, "!!!!!!!!!!!!!!!!!!!")
   dispatch(addAProduct(data))
   return data
 }
@@ -73,20 +72,22 @@ const productsReducer = (state = {}, action) => {
         newState[product.id] = product;
       });
       return newState;
-    
+
     case GET_CART:
       newState = { ...state }
       newState["cart"] = action.cart
       return newState
-    
+
     case ADD_PRODUCT:
       return { ...state, [action.product.id]: action.product }
+
 
     case DELETE_PRODUCT:
       newState = {...state}
       console.log(newState[action.product])
       delete newState[action.product]
       return newState
+
     default:
       return state;
   }
