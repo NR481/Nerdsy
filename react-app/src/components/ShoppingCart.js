@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getShoppingCart } from "../store/products";
+import { getShoppingCart } from "../store/shoppingCart";
 
 const ShoppingCart = () => {
   const user = useSelector(state => state.session.user)
