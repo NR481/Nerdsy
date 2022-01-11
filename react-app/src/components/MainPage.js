@@ -14,7 +14,6 @@ const MainPage = () => {
   const sessionUser = useSelector((state) => state.session.user)
 
   useEffect(() => {
-    console.log(user)
     dispatch(allProducts())
   }, [dispatch])
 
@@ -36,7 +35,7 @@ const MainPage = () => {
       <h2>Featured Items</h2>
       {products?.length > 0 &&
         products.map((product) => (
-          <div>
+          <div key={product.id}>
             <div> {product.name} </div>
             <Link to={`/products/${product.id}`}>
               <img src={product?.imageUrl} />
@@ -57,8 +56,6 @@ const MainPage = () => {
                 <DeleteProduct id={product?.id} />
               </div>
             )}
-
-            <DeleteProduct id={product?.id} />
           </div>
         ))}
     </div>

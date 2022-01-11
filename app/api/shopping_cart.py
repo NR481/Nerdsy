@@ -1,40 +1,64 @@
 from flask import Blueprint, jsonify
-from app.models import Product, User, ShoppingCart, CartItem
+from app.models import Product, User, ShoppingCart, CartItem, db
 import json
 
 
 cart_routes = Blueprint('shopping_cart', __name__)
 
-@cart_routes.route('/:user_id')
+@cart_routes.route('/<int:user_id>')
 def shopping_cart(user_id):
-  cart = ShoppingCart.query.filter(userId=user_id).all()
-  cartItems = CartItem.query.filter(cartId=cart.id).all()
-  return "hello"
+  cart = ShoppingCart.query.filter(ShoppingCart.userId == user_id).all()
+  print("!!!!!! CART!!!!!!", cart)
+  cart = cart.to_dict()
+  cartItems = CartItem.query.filter(CartItem.cartId == cart['id']).all()
+  cartItems = [item.to_dict() for item in cartItems]
+  print("!!!!!! CART !!!!", cart)
+  print("!!!!!!!!! CARTITEMS !!!!!", cartItems)
+  return {
+    'cart': cart,
+    'cartItems': cartItems
+  }
 
 
 @cart_routes.route('/<int:user_id>/<int:product_id>', methods=['GET', 'POST'])
 def add_Item(user_id, product_id):
-  cart = ShoppingCart.query.filter(userId == user_id).first()
-  product = Product.query.filter(id == product_id).first()
+  
+  cart = ShoppingCart.query.filter(ShoppingCart.userId == user_id).first()
+  product = Product.query.filter(Product.id == product_id).first()
   
   if not cart:
     cart = ShoppingCart(
             userId=user_id,
             total=0
     )
+    db.session.add(cart)
+    db.session.commit()
+
 
   newCartItem = CartItem(
     productId=product_id,
     cartId=cart.id,
     quantity=1
   )
+  db.session.add(newCartItem)
+  db.session.commit()
 
-  cartItems = CartItem.query.filter(cartId == cart.id).all()
+  cart = cart.to_dict()
+  newItem = newCartItem.to_dict()
 
-  total = 0
+  cartItems = CartItem.query.filter(CartItem.cartId == cart['id']).all()
+
+  newTotal = 0
 
   cartItems = [item.to_dict() for item in cartItems]
   for item in cartItems:
-    print("ITEM !!!!!", item)
+    product = Product.query.get(item['productId'])
+    product = product.to_dict()
+    newTotal = newTotal + product['price']
   
-  return "hello"
+  cart['total'] = newTotal
+  
+  return {
+    'cart': cart,
+    'cartItems': cartItems
+  }
