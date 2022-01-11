@@ -19,6 +19,7 @@ const DeleteProduct = ({id}) => {
                 delete
             </button>
         </div>
+        
     )
 }
 

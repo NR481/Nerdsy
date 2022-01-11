@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux";
 import { commentEdit } from "../store/comments";
 import DeleteCommentButton from "./DeleteCommentButton";
 
-const EditCommentButton = ({ user, signedInUser, comment, rating }) => {
+const EditCommentButton = ({ user, signedInUser, comment, rating, showModal }) => {
   const [editComment, setComment] = useState(comment?.comment)
   const [editRating, setRating] = useState(rating)
-  const [showForm, setShowForm] = useState(false)
+  // const [showForm, setShowForm] = useState(false)
   const dispatch = useDispatch()
 
   const handleSubmit = async (e) => {
@@ -18,21 +18,21 @@ const EditCommentButton = ({ user, signedInUser, comment, rating }) => {
       userId: signedInUser.id
     }
     await dispatch(commentEdit(newComment, comment?.id))
-    setShowForm(!showForm)
+    // setShowForm(!showForm)
+    showModal(false)
   }
 
   const handleClick = (e) => {
     e.preventDefault()
-    setShowForm(!showForm)
+    // setShowForm(!showForm)
   }
 
 
   return (
     <>
-      {user?.id === signedInUser?.id &&
+      {/* {user?.id === signedInUser?.id &&
         <button onClick={handleClick}>Edit</button>
-      }
-      {showForm &&
+      } */}
         <form onSubmit={handleSubmit}>
           <input
             value={editComment}
@@ -52,7 +52,6 @@ const EditCommentButton = ({ user, signedInUser, comment, rating }) => {
           <button>Submit</button>
           <DeleteCommentButton id={comment?.id}/>
         </form>
-      }
     </>
   )
 }
