@@ -9,6 +9,7 @@ import DeleteProduct from "./DeleteProductButton";
 const MainPage = () => {
   const productObj = useSelector(state => state.products)
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user)
 
   useEffect(() => {
     dispatch(allProducts())
@@ -32,7 +33,10 @@ const MainPage = () => {
               <img src={product?.imageUrl}/>
             </Link>
             <div> ${product.price} </div>
-            <div><DeleteProduct id={product?.id}/></div>
+            {sessionUser?.id === product?.userId && (
+              <div><DeleteProduct id={product?.id}/></div>
+            )}
+            
             
           
 
