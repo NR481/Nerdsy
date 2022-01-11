@@ -22,7 +22,11 @@ const Comments = ({ product }) => {
         users = Object.values(usersObj)
     }
 
-    const comments = Object.values(commentsObj);
+    let comments;
+    if (commentsObj) {
+        comments = Object.values(commentsObj);
+    }
+
     const productComment = comments?.filter(comment => {
         return +comment.productId === +product?.id
     });
@@ -38,6 +42,9 @@ const Comments = ({ product }) => {
                     </div>
                 ))
             }
+            {/* <from>
+                <input
+            </from> */}
         </>
     )
 

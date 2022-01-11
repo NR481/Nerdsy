@@ -22,7 +22,7 @@ export const allProducts = () => async (dispatch) => {
 
 
 export const addProduct = (product) => async (dispatch) => {
-  const response = await fetch('/api/products', {
+  const response = await fetch('/api/products/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(product)
@@ -32,8 +32,6 @@ export const addProduct = (product) => async (dispatch) => {
   dispatch(addAProduct(data))
   return data
 }
-
-
 
 const productsReducer = (state = {}, action) => {
   let newState;
