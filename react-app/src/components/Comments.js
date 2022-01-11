@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { productComments } from "../store/comments";
 import { allUsers } from "../store/session";
+import { addNewComment } from "../store/comments";
 
 const Comments = ({ product }) => {
     const dispatch = useDispatch()
     const commentsObj = useSelector(state => state.comments)
     const usersObj = useSelector(state => state.session.users)
     const signedInUser = useSelector(state => state.session.user)
+    const productId = product?.id
 
     const [comment, setComment] = useState('')
     const [rating, setRating] = useState('5')
@@ -21,17 +23,19 @@ const Comments = ({ product }) => {
         dispatch(allUsers())
     }, [dispatch])
 
+    console.log(product)
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newComment = {
             comment,
             rating: +rating,
-            productId: product?.id,
+            productId,
             userId: signedInUser.id
         }
-
+        await dispatch(addNewComment(newComment))
     }
-    console.log(signedInUser)
+
     let users;
     if (usersObj){
         users = Object.values(usersObj)
