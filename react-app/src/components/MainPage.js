@@ -37,8 +37,10 @@ const MainPage = () => {
               <div><DeleteProduct id={product?.id}/></div>
             )}
             
+
+          <DeleteProduct id={product?.id}/>
+
             
-          
 
           </div>
         ))
