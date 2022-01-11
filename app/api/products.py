@@ -11,8 +11,5 @@ def index():
 
 @product_routes.route('/<int:id>/comments', methods=['GET','POST'])
 def add_comment(id):
-  comments = Comment.query.filter(comments.productId == id)
-  print('COMMENTS:', comments)
-  # test = request.args.get()
-  # print('TEST:',test)
-  return comments.to_dict()
+  comments = Comment.query.filter(Comment.productId == id)
+  return {'comments': [comment.to_dict() for comment in comments]}

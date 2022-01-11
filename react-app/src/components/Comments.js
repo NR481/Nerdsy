@@ -1,7 +1,7 @@
 import { useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import commentsReducer, { productComments } from "../store/comments";
+import { productComments } from "../store/comments";
 
 const Comments = ({ product }) => {
     const dispatch = useDispatch()
@@ -10,19 +10,20 @@ const Comments = ({ product }) => {
     useEffect(() => {
         dispatch(productComments(product?.id))
     }, [dispatch, product?.id])
-    // const comments =
-    // const comment = commentsObj?.filter(comment => {
-    //     return comment.productId === product.id
-    // })
+
+    const comments = Object.values(commentsObj);
+    const productComment = comments?.filter(comment => {
+        return +comment.productId === +product?.id
+    });
 
     return (
         <>
-            {/* <h2>Comments</h2>
-            {comments?.length > 0 &&
-                comments.map(comment => (
+            <h2>Comments</h2>
+            {productComment?.length > 0 &&
+                productComment.map(comment => (
                     <p>{comment.comment}</p>
-                )) */}
-            {/* } */}
+                ))
+            }
         </>
     )
 
