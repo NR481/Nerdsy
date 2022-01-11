@@ -2,6 +2,7 @@ import { useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { allProducts } from "../store/products";
+import Comments from "./Comments";
 
 const ProductDetail = () => {
   const productObj = useSelector(state => state.products);
@@ -10,7 +11,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     dispatch(allProducts())
-  });
+  }, [dispatch]);
 
   const product = productObj[id];
 
@@ -21,6 +22,7 @@ const ProductDetail = () => {
       <p>{product?.description}</p>
       <p>{`$${product?.price}`}</p>
       <button>Add to Cart</button>
+      <Comments product = {product} />
     </>
   )
 }
