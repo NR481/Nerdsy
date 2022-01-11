@@ -27,4 +27,5 @@ class Product(db.Model):
       'rating': self.rating,
       'category': self.category,
       'franchise': self.franchise,
+      'userId': self.userId
     }
