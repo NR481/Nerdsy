@@ -29,7 +29,7 @@ const EditCommentButton = ({ user, signedInUser, comment, rating }) => {
 
   return (
     <>
-      {user.id === signedInUser.id &&
+      {user?.id === signedInUser?.id &&
         <button onClick={handleClick}>Edit</button>
       }
       {showForm &&
