@@ -11,8 +11,8 @@ def index():
   return {'products': [product.to_dict() for product in products]}
 
 
-@product_routes.route('/<int:id>/comments', methods=['GET','POST'])
-def add_comment(id):
+@product_routes.route('/<int:id>/comments')
+def get_comments(id):
   comments = Comment.query.filter(Comment.productId == id)
   return {'comments': [comment.to_dict() for comment in comments]}
 
@@ -39,3 +39,11 @@ def add_product():
     db.session.commit()
 
     return product.to_dict()
+
+
+@product_routes.route('/<int:id>', methods=['DELETE'])
+def delete_product(id):
+  product = Product.query.get(id)
+  db.session.delete(product)
+  db.session.commit()
+  return {"Delete":"Success"}

@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { allProducts } from "../store/products";
 import AddProductModal from "./addProduct/addProductModal";
 import { addToCart } from "../store/shoppingCart";
+import DeleteProduct from "./DeleteProductButton";
+
 
 const MainPage = () => {
   const productObj = useSelector(state => state.products)
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user)
+
   useEffect(() => {
     console.log(user)
     dispatch(allProducts())
@@ -31,8 +36,12 @@ const MainPage = () => {
       <h2>Featured Items</h2>
       {products?.length > 0 &&
         products.map((product) => (
-          <span key={product.id}>
-            <img src={product?.imageUrl} />
+          <div>
+            <div> {product.name} </div>
+            <Link to={`/products/${product.id}`}>
+              <img src={product?.imageUrl} />
+            </Link>
+            <div> ${product.price} </div>
             <button
               type="button"
               value={product}
@@ -40,8 +49,17 @@ const MainPage = () => {
                 e.preventDefault();
                 handleAddToCart(product.id);
               }}
-            >add to cart</button>
-          </span>
+            >
+              add to cart
+            </button>
+            {sessionUser?.id === product?.userId && (
+              <div>
+                <DeleteProduct id={product?.id} />
+              </div>
+            )}
+
+            <DeleteProduct id={product?.id} />
+          </div>
         ))}
     </div>
   );
