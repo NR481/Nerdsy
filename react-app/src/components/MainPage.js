@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { allProducts } from "../store/products";
 import AddProductModal from "./addProduct/addProductModal";
+import DeleteProduct from "./DeleteSongButton";
 
 const MainPage = () => {
   const productObj = useSelector(state => state.products)
@@ -22,7 +23,10 @@ const MainPage = () => {
       <h2>Featured Items</h2>
       {products?.length > 0 &&
         products.map(product => (
+          <div>
           <img src={product?.imageUrl}/>
+          <DeleteProduct id={product?.id}/>
+          </div>
         ))
       }
     </div>
