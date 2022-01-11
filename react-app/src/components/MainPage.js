@@ -33,7 +33,6 @@ const MainPage = () => {
             </Link>
             <div> ${product.price} </div>
             
-          <img src={product?.imageUrl}/>
           <DeleteProduct id={product?.id}/>
 
           </div>

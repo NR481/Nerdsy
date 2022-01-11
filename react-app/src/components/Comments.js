@@ -59,7 +59,7 @@ const Comments = ({ product }) => {
                     </div>
                 ))
             }
-            {signedInUser.id > 0 &&
+            {signedInUser !== null &&
                 <form onSubmit={handleSubmit}>
                     <input
                         placeholder="Leave a comment..."
