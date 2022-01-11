@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { allProducts } from "../store/products";
 import AddProductModal from "./addProduct/addProductModal";
+
 
 const MainPage = () => {
   const productObj = useSelector(state => state.products)
@@ -22,7 +24,13 @@ const MainPage = () => {
       <h2>Featured Items</h2>
       {products?.length > 0 &&
         products.map(product => (
-          <img src={product?.imageUrl}/>
+          <div>
+            <div> {product.name} </div>
+            <Link to={`/products/${product.id}`}>
+              <img src={product?.imageUrl}/>
+            </Link>
+            <div> {product.price} </div>
+          </div>
         ))
       }
     </div>
