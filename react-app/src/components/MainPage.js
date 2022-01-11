@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { allProducts } from "../store/products";
 import AddProductModal from "./addProduct/addProductModal";
-import DeleteProduct from "./DeleteSongButton";
+import DeleteProduct from "./DeleteProductButton";
 
 const MainPage = () => {
   const productObj = useSelector(state => state.products)
