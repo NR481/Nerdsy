@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { allProducts } from "../store/products";
 import AddProductModal from "./addProduct/addProductModal";
+import DeleteProduct from "./DeleteSongButton";
 
 
 const MainPage = () => {
@@ -25,11 +26,16 @@ const MainPage = () => {
       {products?.length > 0 &&
         products.map(product => (
           <div>
+
             <div> {product.name} </div>
             <Link to={`/products/${product.id}`}>
               <img src={product?.imageUrl}/>
             </Link>
             <div> ${product.price} </div>
+            
+          <img src={product?.imageUrl}/>
+          <DeleteProduct id={product?.id}/>
+
           </div>
         ))
       }
