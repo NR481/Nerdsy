@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { commentEdit } from "../store/comments";
+import DeleteCommentButton from "./DeleteCommentButton";
 
 const EditCommentButton = ({ user, signedInUser, comment, rating }) => {
   const [editComment, setComment] = useState(comment?.comment)
@@ -49,6 +50,7 @@ const EditCommentButton = ({ user, signedInUser, comment, rating }) => {
             <option value='5'>5</option>
           </select>
           <button>Submit</button>
+          <DeleteCommentButton id={comment?.id}/>
         </form>
       }
     </>
