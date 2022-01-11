@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { allProducts } from "../store/products";
 import AddProductModal from "./addProduct/addProductModal";
 import { addToCart } from "../store/shoppingCart";
@@ -10,6 +10,7 @@ import EditProductModal from "./editProduct/editProductModal";
 
 const MainPage = () => {
   const productObj = useSelector(state => state.products)
+  const history = useHistory()
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user)
@@ -48,6 +49,13 @@ const MainPage = () => {
               onClick={(e) => {
                 e.preventDefault();
                 handleAddToCart(product.id);
+                const confirmed = window.confirm(
+                  `Added ${product.name} to your cart!
+                  Would you like to go to your cart now?`
+                )
+                if (confirmed) {
+                  return history.push(`/shopping_cart/${user.id}`)
+                }
               }}
             >
               add to cart
