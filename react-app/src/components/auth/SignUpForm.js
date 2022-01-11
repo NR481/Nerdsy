@@ -114,7 +114,7 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button type='submit' disabled={password !== repeatPassword}>Sign Up</button>
     </form>
   );
 };
