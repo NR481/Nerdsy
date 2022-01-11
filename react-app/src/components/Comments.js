@@ -17,8 +17,11 @@ const Comments = ({ product }) => {
         dispatch(allUsers())
     }, [dispatch])
 
-    const users = Object.values(usersObj)
-    console.log(users)
+    let users;
+    if (usersObj){
+        users = Object.values(usersObj)
+    }
+
     const comments = Object.values(commentsObj);
     const productComment = comments?.filter(comment => {
         return +comment.productId === +product?.id
@@ -28,10 +31,10 @@ const Comments = ({ product }) => {
         <>
             <h2>Comments</h2>
             {productComment?.length > 0 &&
-                productComment.map(comment => (
+                productComment?.map(comment => (
                     <div>
-                        <p>{`${users[comment.userId - 1].firstName} ${users[comment.userId - 1].lastName}`}</p>
-                        <p>{comment.comment}</p>
+                        <p>{`${users[comment?.userId - 1]?.firstName} ${users[comment?.userId - 1]?.lastName}`}</p>
+                        <p>{comment?.comment}</p>
                     </div>
                 ))
             }
