@@ -5,6 +5,7 @@ import { allProducts } from "../store/products";
 import AddProductModal from "./addProduct/addProductModal";
 import DeleteProduct from "./DeleteProductButton";
 import EditProductModal from "./editProduct/editProductModal";
+import '../components/MainPage.css'
 
 
 const MainPage = () => {
@@ -31,22 +32,25 @@ const MainPage = () => {
       <h1>Nerdsy</h1>
       <AddProductModal />
       <h2>Featured Items</h2>
-      {products?.length > 0 &&
-        products.map((product) => (
-          <div key={product.id}>
-            <div> {product.name} </div>
-            <Link to={`/products/${product.id}`}>
-              <img src={product?.imageUrl} />
-            </Link>
-            <div>{product.price}</div>
-            {sessionUser?.id === product?.userId && (
-              <div>
-                <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} />
-                <DeleteProduct id={product?.id} />
-              </div>
-            )}
-          </div>
-        ))}
+      <div className="productsContainer">
+        {products?.length > 0 &&
+          products.map((product) => (
+            <div key={product.id}>
+              <div> {product.name} </div>
+              <Link to={`/products/${product.id}`}>
+                <img src={product?.imageUrl} className="img" />
+              </Link>
+              <div>{product.price}</div>
+              {sessionUser?.id === product?.userId && (
+                <div>
+                  <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} />
+                  {/* <DeleteProduct id={product?.id} /> */}
+                </div>
+              )}
+            </div>
+          ))}
+      </div>
+      
     </div>
   );
 }

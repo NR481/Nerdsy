@@ -1,0 +1,20 @@
+.productsContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 75%;
+    margin: auto;
+    padding: 10px;
+    border: 3px solid #3724CE;
+    background-color: #E2E3E5;
+    margin-top: 100px;
+}
+
+.img {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    padding: 10px;
+}

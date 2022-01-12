@@ -26,7 +26,7 @@ const editAProduct = (product) => ({
 
 
 export const allProducts = () => async (dispatch) => {
-  const response = await fetch("/api/products");
+  const response = await fetch("/api/products/");
   const data = await response.json();
   dispatch(getAllProducts(data));
   return data;
