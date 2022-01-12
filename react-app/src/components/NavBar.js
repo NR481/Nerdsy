@@ -58,9 +58,9 @@ const NavBar = ({ email, password }) => {
         )}
         {user && (
           <li>
-            <i class="fas fa-shopping-cart"
+            <button class="fas fa-shopping-cart" className='cart'
               onClick={(e) => history.push(`/shopping_cart/${user.id}`)}
-            ></i>
+            ></button>
           </li>
         )}
         {user && <li className="username"> {user.username} </li>}

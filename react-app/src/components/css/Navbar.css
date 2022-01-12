@@ -9,6 +9,14 @@ nav {
     border: 1px solid #575856;
 }
 
+.username {
+    color: #3724CE;
+}
+
+.cart {
+    color: #3724CE;
+}
+
 .nav-items {
     display: flex;
     padding-right: 10px;
