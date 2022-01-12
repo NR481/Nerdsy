@@ -19,7 +19,7 @@ const ProductDetail = () => {
   }, [dispatch]);
 
   const handleAddToCart = (productId) => {
-    return dispatch(addToCart(productId, user.id, quantity));
+    return dispatch(addToCart(productId, user?.id, quantity));
   };
 
   const product = productObj[id];
@@ -42,7 +42,7 @@ const ProductDetail = () => {
                   Would you like to go to your cart now?`
           );
           if (confirmed) {
-            return history.push(`/shopping_cart/${user.id}`);
+            return history.push(`/shopping_cart/${user?.id}`);
           }
         }}
       >
