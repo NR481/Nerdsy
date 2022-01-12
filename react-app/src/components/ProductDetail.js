@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { allProducts } from "../store/products";
 import { addToCart } from "../store/shoppingCart";
 import Comments from "./Comments";
+import EditProductModal from "./editProduct/editProductModal";
 
 const ProductDetail = () => {
   const history = useHistory()
@@ -28,6 +29,7 @@ const ProductDetail = () => {
       <img src={product?.imageUrl} />
       <p>{product?.description}</p>
       <p>{`$${product?.price}`}</p>
+      <EditProductModal id={product?.id} editName={product?.name} editPrice={product?.price} editDescription={product?.description} editImageUrl={product?.imageUrl} editRating={product?.rating} editCategory={product?.category} editFranchise={product?.franchise} />
       <button
         type="button"
         value={product}
