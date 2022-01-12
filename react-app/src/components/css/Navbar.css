@@ -5,7 +5,7 @@
 
 li {
     text-decoration: none;
-    color: black;
+    color: #3724CE;
     list-style-type: none
 }
 
@@ -14,5 +14,13 @@ li {
 }
 
 .username {
-    color: red;
+    color: #3724CE;
+}
+
+.active:hover {
+    color: #575856;
+}
+
+.active:visited {
+    color: #575856
 }

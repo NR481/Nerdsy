@@ -31,11 +31,13 @@ const NavBar = ({email, password}) => {
             </NavLink>
           </li>
         }
-        <li>
-          <NavLink to='/users' exact={true} style={{textDecoration: 'none'}} activeClassName='active'>
-            Users
-          </NavLink>
-        </li>
+        { user &&
+          <li>
+            <NavLink to='/users' exact={true} style={{textDecoration: 'none'}} activeClassName='active'>
+              Users
+            </NavLink>
+          </li>
+        }
         { user &&
           <li className='username'> {user.username} </li>
         }
