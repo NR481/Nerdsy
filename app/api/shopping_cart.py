@@ -124,9 +124,18 @@ def delete_item(product_id, cart_id):
 
   cartItems = CartItem.query.filter(CartItem.cartId == cart_id)
   cartItems = [item.to_dict() for item in cartItems]
+
   cart = ShoppingCart.query.get(cart_id)
+  
+  newTotal = 0
+  for item in cartItems:
+    product = Product.query.get(item['productId'])
+    product = product.to_dict()
+    newTotal = newTotal + (product['price'] * item['quantity'])
   cart = cart.to_dict()
+  cart['total'] = newTotal
+  
   return {
-    "cartItems": cartItems,
-    "cart": cart
+    'cart': cart,
+    'cartItems': cartItems
   }
