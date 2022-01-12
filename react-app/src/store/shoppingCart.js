@@ -1,29 +1,18 @@
-const GET_CART = "shoppingCart/GET_CART";
-const ADD_ITEM = "shoppingCart/ADD_CART";
-const REMOVE_ITEM = "shoppingCart/REMOVE_ITEM";
+const UPDATE_CART = "shoppingCart/GET_CART";
 
-const getCart = (cartData) => ({
-  type: GET_CART,
+const updateCart = (cartData) => ({
+  type: UPDATE_CART,
   cartData,
 });
 
-const removecart = (cartData) => ({
-  type: REMOVE_ITEM,
-  cartData,
-})
-
-const addCart = (cartData) => ({
-  type: ADD_ITEM,
-  cartData
-})
 
 export const getShoppingCart = (userId) => async (dispatch) => {
   const response = await fetch(`/api/shopping_cart/${userId}`);
   const cartData = await response.json();
-  dispatch(getCart(cartData));
+  dispatch(updateCart(cartData));
 };
 
-export const addToCart = (productId, userId) => async (dispatch) => {
+export const addToCart = (productId, userId, quantity) => async (dispatch) => {
   const response = await fetch(`/api/shopping_cart/${userId}/${productId}`, {
     method: "POST",
     headers: {
@@ -31,13 +20,31 @@ export const addToCart = (productId, userId) => async (dispatch) => {
     },
     body: JSON.stringify({
       userId,
-      productId
+      productId,
+      quantity
     }),
   });
 
   const data = await response.json()
-  dispatch(addCart(data))
+  dispatch(updateCart(data))
 };
+
+export const updateShoppingCart = (itemId, quantity, cartId) => async (dispatch) => {
+  const response = await fetch(`/api/shopping_cart/update`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      itemId,
+      quantity,
+      cartId
+    })
+  })
+
+  const data = await response.json()
+  dispatch(updateCart(data))
+}
 
 export const removeFromCart = (product, cartId) => async (dispatch) => {
   const response = await fetch(`/api/shopping_cart/${product.id}/${cartId}`, {
@@ -47,29 +54,18 @@ export const removeFromCart = (product, cartId) => async (dispatch) => {
     },
   })
   
-  const newCartItems = await response.json()
-  dispatch(removecart(newCartItems))
+  const newCartData = await response.json()
+  dispatch(updateCart(newCartData))
 }
 
 const shoppingCartReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
-    case GET_CART:
+    case UPDATE_CART:
       newState = { ...state };
       newState["cart"] = action.cartData.cart;
       newState['cartItems'] = action.cartData.cartItems;
       return newState;
-
-    case ADD_ITEM:
-      newState = { ...state };
-      newState["cartItems"] = action.cartData.cartItems
-      newState['cart'] = action.cartData.cart
-      return newState
-    
-    case REMOVE_ITEM:
-      newState = { ...state };
-      newState["cartItems"] = action.cartData.cartItems
-      return newState
     
     default:
       return state;

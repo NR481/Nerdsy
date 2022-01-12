@@ -8,7 +8,8 @@ import Comments from "./Comments";
 const ProductDetail = () => {
   const history = useHistory()
   const productObj = useSelector(state => state.products);
-  const user = useSelector(state => state.session.user)
+  const user = useSelector(state => state.session.user);
+  const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -17,7 +18,7 @@ const ProductDetail = () => {
   }, [dispatch]);
 
   const handleAddToCart = (productId) => {
-    return dispatch(addToCart(productId, user.id));
+    return dispatch(addToCart(productId, user.id, quantity));
   };
 
   const product = productObj[id];
@@ -45,6 +46,14 @@ const ProductDetail = () => {
       >
         add to cart
       </button>
+      <label>
+        Quantity
+        <input
+          type="text"
+          value={quantity} 
+          onChange={(e) => setQuantity(e.target.value)}
+        />
+      </label>
       <Comments product={product} />
     </>
   );
