@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from app.models import Product, User, ShoppingCart, CartItem, db
 import json
 
@@ -26,7 +26,7 @@ def shopping_cart(user_id):
   for item in cartItems:
     product = Product.query.get(item['productId'])
     product = product.to_dict()
-    newTotal = newTotal + product['price']
+    newTotal = newTotal + (product['price'] * item['quantity'])
   
   cart['total'] = newTotal
   return {
@@ -35,9 +35,10 @@ def shopping_cart(user_id):
   }
 
 
-@cart_routes.route('/<int:user_id>/<int:product_id>', methods=['GET', 'POST'])
+@cart_routes.route('/<int:user_id>/<int:product_id>', methods=['POST'])
 def add_Item(user_id, product_id):
-  
+  data = request.json
+  print("!!!!!!!!!! DATA!!!!!!!!!", data)
   cart = ShoppingCart.query.filter(ShoppingCart.userId == user_id).first()
   product = Product.query.filter(Product.id == product_id).first()
   
@@ -53,7 +54,7 @@ def add_Item(user_id, product_id):
   newCartItem = CartItem(
     productId=product_id,
     cartId=cart.id,
-    quantity=1
+    quantity=data['quantity']
   )
   db.session.add(newCartItem)
   db.session.commit()
@@ -69,7 +70,7 @@ def add_Item(user_id, product_id):
   for item in cartItems:
     product = Product.query.get(item['productId'])
     product = product.to_dict()
-    newTotal = newTotal + product['price']
+    newTotal = newTotal + (product['price'] * item['quantity'])
   
   cart['total'] = newTotal
   
@@ -77,6 +78,43 @@ def add_Item(user_id, product_id):
     'cart': cart,
     'cartItems': cartItems
   }
+
+
+@cart_routes.route("/update", methods=["PUT"])
+def update_cart():  
+  data = request.json
+  item_id = data['itemId']
+  newQuantity = data['quantity']
+  cart_id = data['cartId']
+
+  cart = ShoppingCart.query.get(cart_id)
+
+  item = CartItem.query.get(item_id)
+  item.quantity = newQuantity
+  item = item.to_dict()
+
+  db.session.commit()
+
+  items = CartItem.query.filter(CartItem.cartId == cart_id).all()
+  cartItems = [item.to_dict() for item in items]
+  
+  newTotal = 0
+  for item in cartItems:
+    product = Product.query.get(item['productId'])
+    product = product.to_dict()
+    newTotal = newTotal + (product['price'] * item['quantity'])
+  cart = cart.to_dict()
+  cart['total'] = newTotal
+  
+  return {
+    'cart': cart,
+    'cartItems': cartItems
+  }
+
+
+
+
+
 
 @cart_routes.route("/<int:product_id>/<int:cart_id>", methods=["DELETE"])
 def delete_item(product_id, cart_id):
