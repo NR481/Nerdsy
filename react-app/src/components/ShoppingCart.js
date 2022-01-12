@@ -49,7 +49,7 @@ const ShoppingCart = () => {
               Quantity
               <input
                 type="text"
-                value={quantity}
+                value={item.quantity}
                 onChange={(e) => {
                   setQuantity(e.target.value);
                 }}
