@@ -27,3 +27,11 @@
     margin: auto;
     padding: 10px;
 }
+
+.page-container {
+    text-align: center;
+}
+
+h2 {
+    font-size: 100px;
+}

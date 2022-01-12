@@ -47,6 +47,10 @@ nav {
     font-family: 'Audiowide', cursive;
 }
 
+.button:hover {
+    cursor: pointer;
+}
+
 .name-banner {
     position: absolute;
     top: 15px;
