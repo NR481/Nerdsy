@@ -26,31 +26,53 @@ const MainPage = () => {
   return (
     <div>
       <img
+        className="splash-image"
         src="https://cdn1.parksmedia.wdprapps.disney.com/media/blog/wp-content/uploads/2014/11/bhsftd485724.jpg"
         alt="city skyline"
       />
-      <h1>Nerdsy</h1>
-      <AddProductModal />
-      <h2>Featured Items</h2>
-      <div className="productsContainer">
-        {products?.length > 0 &&
-          products.map((product) => (
-            <div key={product.id}>
-              <div> {product.name} ${product.price}</div>
-              <Link to={`/products/${product.id}`}>
-                <img src={product?.imageUrl} className="img" />
-              </Link>
-              
-              {sessionUser?.id === product?.userId && (
-                <div>
-                  <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} />
-                  {/* <DeleteProduct id={product?.id} /> */}
-                </div>
-              )}
-            </div>
-          ))}
+      <div className="page-container">
+        <AddProductModal />
+        <h2>Featured Items</h2>
+        <div className="productsContainer">
+          {products?.length > 0 &&
+            products.map((product) => (
+              <div key={product.id}>
+                <div> {product.name} </div>
+                <Link to={`/products/${product.id}`}>
+                  <img src={product?.imageUrl} className="img" />
+                </Link>
+                <div>{product.price}</div>
+                {sessionUser?.id === product?.userId && (
+                  <div>
+                    <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} />
+                    {/* <DeleteProduct id={product?.id} /> */}
+                  </div>
+                )}
+              </div>
+            ))}
+        </div>
+        <h1>Nerdsy</h1>
+        <AddProductModal />
+        <h2>Featured Items</h2>
+        <div className="productsContainer">
+          {products?.length > 0 &&
+            products.map((product) => (
+              <div key={product.id}>
+                <div> {product.name} ${product.price}</div>
+                <Link to={`/products/${product.id}`}>
+                  <img src={product?.imageUrl} className="img" />
+                </Link>
+
+                {sessionUser?.id === product?.userId && (
+                  <div>
+                    <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} />
+                    {/* <DeleteProduct id={product?.id} /> */}
+                  </div>
+                )}
+              </div>
+            ))}
+        </div>
       </div>
-      
     </div>
   );
 }

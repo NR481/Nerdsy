@@ -1,4 +1,49 @@
-.active {
+nav {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color:  #E2E3E5;
+    width: 100%;
+    height: 75px;
+    border: 1px solid #575856;
+}
+
+.nav-items {
+    display: flex;
+    padding-right: 10px;
+}
+
+.search-bar {
+    margin-right: 280px;
+}
+
+.search-field {
+    height: 20px;
+    width: 200px;
+}
+
+.search-button {
+    height: 26px;
+    margin-left: -5px;
+    background-color: #3724CE;
+    color: #E2E3E5;
+}
+
+.nav-items > li{
+    margin: 20px;
+    font-family: 'Audiowide', cursive;
+}
+
+.name-banner {
+    position: fixed;
+    left: 20px;
+    font-size: 40px;
+    font-family: 'Audiowide', cursive;
+    color: #3724CE;
+}
+
+/* .active {
     color: #3724CE;
     text-decoration: none;
 }
@@ -23,4 +68,4 @@ li {
 
 .active:visited {
     color: #575856
-}
+} */
