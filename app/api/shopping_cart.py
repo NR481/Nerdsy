@@ -77,3 +77,14 @@ def add_Item(user_id, product_id):
     'cart': cart,
     'cartItems': cartItems
   }
+
+@cart_routes.route("/<int:product_id>/<int:cart_id>", methods=["DELETE"])
+def delete_item(product_id, cart_id):
+  cartItem = CartItem.query.filter(CartItem.productId == product_id).first()
+  db.session.delete(cartItem)
+  db.session.commit()
+
+  cartItems = CartItem.query.filter(CartItem.cartId == cart_id)
+  cartItems = [item.to_dict() for item in cartItems]
+
+  return {"cartItems": cartItems}
