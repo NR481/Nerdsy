@@ -20,7 +20,7 @@ const getUsers = (users) => ({
 const initialState = { user: null, users: {} };
 
 export const authenticate = () => async (dispatch) => {
-  const response = await fetch('/api/auth/', {
+  const response = await fetch('/api/auth', {
     headers: {
       'Content-Type': 'application/json'
     }
@@ -106,10 +106,24 @@ export const signUp = (firstName, lastName, username, email, password) => async 
 }
 
 export const allUsers = () => async (dispatch) => {
-  const response = await fetch('/api/users')
+  const response = await fetch('/api/users/')
   const data = await response.json()
   dispatch(getUsers(data))
   return data
+}
+
+export const demoUser = (email, password) => async (dispatch) => {
+  const res = await fetch('/api/users/demo', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      email,
+      password
+    })
+  })
+  const data = await res.json();
+  dispatch(setUser(data.user));
+  return res
 }
 
 export default function reducer(state = initialState, action) {
