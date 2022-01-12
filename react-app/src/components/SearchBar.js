@@ -19,10 +19,11 @@ const SearchBar = () => {
   return (
     <form onSubmit={submitSearch}>
       <input
+        placeholder="Search"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <button>Search</button>
+      <button><i class="fas fa-search"></i></button>
     </form>
   )
 }
