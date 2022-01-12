@@ -1,16 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-
 import SearchBar from './SearchBar';
-
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './css/Navbar.css'
 
-const NavBar = ({email, password}) => {
+const NavBar = () => {
   const user = useSelector(state => state.session.user)
-  const dispatch = useDispatch()
-
 
   return (
     <nav>
@@ -32,13 +28,6 @@ const NavBar = ({email, password}) => {
           <li>
             <NavLink to='/sign-up' exact={true} style={{textDecoration: 'none'}} activeClassName='active'>
               Sign Up
-            </NavLink>
-          </li>
-        }
-        { user &&
-          <li>
-            <NavLink to='/users' exact={true} style={{textDecoration: 'none'}} activeClassName='active'>
-              Users
             </NavLink>
           </li>
         }

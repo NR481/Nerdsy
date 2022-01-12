@@ -1,12 +1,17 @@
 .active {
     color: #3724CE;
     text-decoration: none;
+    text-align: center;
 }
 
+ul {
+    text-align: center;
+    margin: 0;
+}
 li {
     text-decoration: none;
-    color: #3724CE;
-    list-style-type: none
+    color: red;
+    list-style-type: none;
 }
 
 .logout {
@@ -14,7 +19,7 @@ li {
 }
 
 .username {
-    color: #3724CE;
+    color: red;
 }
 
 .active:hover {
@@ -22,5 +27,5 @@ li {
 }
 
 .active:visited {
-    color: #575856
+    color: #3724CE;
 }

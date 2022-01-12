@@ -23,7 +23,7 @@ const SearchBar = () => {
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <button><i class="fas fa-search"></i></button>
+      <button><i class="fas fa-search" className="search" >Search</i></button>
     </form>
   )
 }
