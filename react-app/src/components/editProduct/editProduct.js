@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { editProduct } from "../../store/products";
+import DeleteProduct from "../DeleteProductButton";
 
 const EditProduct = ({id, showModal, editName, editPrice, editDescription, editImageUrl, editRating, editCategory, editFranchise}) => {
     const dispatch = useDispatch()
@@ -93,6 +94,7 @@ const EditProduct = ({id, showModal, editName, editPrice, editDescription, editI
                 submit
             </button>
         </form>
+        <DeleteProduct id={id}/>
     </div>
     )
 }

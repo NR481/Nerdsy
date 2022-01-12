@@ -9,3 +9,10 @@ class ShoppingCart(db.Model):
 
   user = db.relationship('User', back_populates='shopping_cart')
   cart_items = db.relationship('CartItem', back_populates='shopping_carts')
+
+  def to_dict(self):
+    return {
+      'id' : self.id,
+      'total' : self.total,
+      'userId' : self.userId,
+    }

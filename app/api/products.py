@@ -4,7 +4,7 @@ from app.models import Comment, Product, db
 from app.forms import AddProductForm
 # from app.forms import EditProductForm
 
-product_routes = Blueprint('products', __name__, url_prefix="/products")
+product_routes = Blueprint('products', __name__)
 
 @product_routes.route('/')
 def index():
