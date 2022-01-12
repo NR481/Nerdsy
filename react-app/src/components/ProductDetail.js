@@ -1,11 +1,14 @@
 import { useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { allProducts } from "../store/products";
+import { addToCart } from "../store/shoppingCart";
 import Comments from "./Comments";
 
 const ProductDetail = () => {
+  const history = useHistory()
   const productObj = useSelector(state => state.products);
+  const user = useSelector(state => state.session.user)
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -13,18 +16,38 @@ const ProductDetail = () => {
     dispatch(allProducts())
   }, [dispatch]);
 
+  const handleAddToCart = (productId) => {
+    return dispatch(addToCart(productId, user.id));
+  };
+
   const product = productObj[id];
 
   return (
     <>
       <h1>{product?.name}</h1>
-      <img src={product?.imageUrl}/>
+      <img src={product?.imageUrl} />
       <p>{product?.description}</p>
       <p>{`$${product?.price}`}</p>
-      <button>Add to Cart</button>
-      <Comments product = {product} />
+      <button
+        type="button"
+        value={product}
+        onClick={(e) => {
+          e.preventDefault();
+          handleAddToCart(product.id);
+          const confirmed = window.confirm(
+            `Added ${product.name} to your cart!
+                  Would you like to go to your cart now?`
+          );
+          if (confirmed) {
+            return history.push(`/shopping_cart/${user.id}`);
+          }
+        }}
+      >
+        add to cart
+      </button>
+      <Comments product={product} />
     </>
-  )
+  );
 }
 
 export default ProductDetail;

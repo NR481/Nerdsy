@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getShoppingCart } from "../store/shoppingCart";
+import { getShoppingCart, removeFromCart } from "../store/shoppingCart";
 import { allProducts } from "../store/products";
 
 const ShoppingCart = () => {
@@ -17,6 +17,10 @@ const ShoppingCart = () => {
     dispatch(getShoppingCart(user.id))
   }, [dispatch])
 
+  const handleDelete = (product) => {
+    return dispatch(removeFromCart(product, cart.id))
+  }
+  
   return (
     <div>
       <h1>Shopping Cart</h1>
@@ -27,11 +31,17 @@ const ShoppingCart = () => {
         console.log("PRODUCTOBJ", productObj)
         const product = productObj[id]
         console.log("PRODUCT", product)
-        return <div key={item.id}>
+        return <span key={item.id}>
           <h2>{product?.name}</h2>
-          <img src={product?.imageUrl}/>
+          <img src={product?.imageUrl} />
+          <button type='button'
+            onClick={(e) => {
+              e.preventDefault()
+              handleDelete(product)
+            }}
+          >Remove From Cart</button>
           <h3>{product?.price * item?.quantity}</h3>
-        </div>
+        </span>
       })}
       <h2>{cart?.total}</h2>
     </div>
