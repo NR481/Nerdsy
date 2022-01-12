@@ -1,9 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-
 import SearchBar from './SearchBar';
-
 import { useSelector, useDispatch } from 'react-redux';
 import './css/Navbar.css'
 
@@ -14,7 +12,11 @@ const NavBar = ({email, password}) => {
 
   return (
     <nav>
-      <ul>
+      <h1 className='name-banner'>Nerdsy</h1>
+      <div className='search-bar'>
+        <SearchBar />
+      </div>
+      <ul className='nav-items'>
         <li>
           <NavLink to='/' exact={true} style={{textDecoration: 'none'}}activeClassName='active'>
             Home
@@ -50,10 +52,6 @@ const NavBar = ({email, password}) => {
             <LogoutButton />
           </li>
         }
-          <li>
-            <SearchBar />
-          </li>
-
       </ul>
     </nav>
   );
