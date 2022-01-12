@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { login } from '../../store/session';
+import { login, demoUser } from '../../store/session';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -25,6 +25,11 @@ const LoginForm = () => {
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
+
+  const handleDemo = () => {
+    setEmail('demo@aa.io')
+    setPassword('password')
+  }
 
   if (user) {
     return <Redirect to='/' />;
@@ -57,6 +62,7 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <button type='submit'>Login</button>
+        <button onClick={handleDemo}>Demouser</button>
       </div>
     </form>
   );

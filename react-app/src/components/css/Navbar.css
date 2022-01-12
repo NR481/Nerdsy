@@ -1,0 +1,26 @@
+.active {
+    color: #3724CE;
+    text-decoration: none;
+}
+
+li {
+    text-decoration: none;
+    color: #3724CE;
+    list-style-type: none
+}
+
+.logout {
+    border: solid black 2px;
+}
+
+.username {
+    color: #3724CE;
+}
+
+.active:hover {
+    color: #575856;
+}
+
+.active:visited {
+    color: #575856
+}

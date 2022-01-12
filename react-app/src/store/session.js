@@ -112,6 +112,20 @@ export const allUsers = () => async (dispatch) => {
   return data
 }
 
+export const demoUser = (email, password) => async (dispatch) => {
+  const res = await fetch('/api/users/demo', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      email,
+      password
+    })
+  })
+  const data = await res.json();
+  dispatch(setUser(data.user));
+  return res
+}
+
 export default function reducer(state = initialState, action) {
   let newState;
   switch (action.type) {
