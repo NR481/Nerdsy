@@ -16,3 +16,8 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+@user_routes.route('/demo')
+def demo():
+    user = User.query.filter(User.username == 'Demo123')
+    return user.to_dict()
