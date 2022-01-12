@@ -12,8 +12,11 @@ const SearchPage = () => {
       {results?.length &&
         results.map(result => (
           <div>
-            <Link to={`/products/${result.id}`}>{result.name}</Link>
+            <p>{result.name}</p>
             <p>{result.category}</p>
+            <Link to={`/products/${result.id}`}>
+              <img src={result.imageUrl}/>
+              </Link>
           </div>
         ))
       }
