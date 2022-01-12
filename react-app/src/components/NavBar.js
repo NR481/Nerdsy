@@ -1,35 +1,55 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import SearchBar from './SearchBar';
+import { useSelector, useDispatch } from 'react-redux';
+import './css/Navbar.css'
 
-const NavBar = () => {
+const NavBar = ({email, password}) => {
+  const user = useSelector(state => state.session.user)
+
   return (
     <nav>
       <ul>
         <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
+          <NavLink to='/' exact={true} style={{textDecoration: 'none'}}activeClassName='active'>
             Home
           </NavLink>
         </li>
-        <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
-        </li>
+
+        { !user &&
+          <li>
+            <NavLink to='/login' exact={true} style={{textDecoration: 'none'}} activeClassName='active'>
+              Login
+            </NavLink>
+          </li>
+        }
+        { !user &&
+          <li>
+            <NavLink to='/sign-up' exact={true} style={{textDecoration: 'none'}} activeClassName='active'>
+              Sign Up
+            </NavLink>
+          </li>
+        }
+        { user &&
+          <li>
+            <NavLink to='/users' exact={true} style={{textDecoration: 'none'}} activeClassName='active'>
+              Users
+            </NavLink>
+          </li>
+        }
+        { user &&
+          <li className='username'> {user.username} </li>
+        }
+        { user &&
+          <li>
+            <LogoutButton />
+          </li>
+        }
+          <li>
+            <SearchBar />
+          </li>
+
       </ul>
     </nav>
   );
