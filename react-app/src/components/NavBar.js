@@ -5,6 +5,7 @@ import SearchBar from './SearchBar';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './css/Navbar.css'
+import ShoppingCartModal from './ShoppingCartModal';
 
 const NavBar = ({ email, password }) => {
   const history = useHistory()
@@ -57,10 +58,13 @@ const NavBar = ({ email, password }) => {
           </li>
         )}
         {user && (
+          // <li>
+          //   <button class="fas fa-shopping-cart"
+          //     onClick={(e) => history.push(`/shopping_cart/${user.id}`)}
+          //   ></button>
+          // </li>
           <li>
-            <button class="fas fa-shopping-cart"
-              onClick={(e) => history.push(`/shopping_cart/${user.id}`)}
-            ></button>
+            <ShoppingCartModal />
           </li>
         )}
         {user && <li className="username"> {user.username} </li>}
