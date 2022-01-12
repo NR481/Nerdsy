@@ -41,9 +41,9 @@ const ProductDetail = () => {
             `Added ${product.name} to your cart!
                   Would you like to go to your cart now?`
           );
-          if (confirmed) {
-            return history.push(`/shopping_cart/${user?.id}`);
-          }
+          // if (confirmed) {
+          //   return history.push(`/shopping_cart/${user?.id}`);
+          // }
         }}
       >
         add to cart

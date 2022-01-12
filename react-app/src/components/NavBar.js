@@ -5,6 +5,7 @@ import SearchBar from './SearchBar';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './css/Navbar.css'
+import ShoppingCartModal from './ShoppingCartModal';
 
 const NavBar = ({ email, password }) => {
   const history = useHistory()
@@ -57,23 +58,7 @@ const NavBar = ({ email, password }) => {
           </li>
         )}
         {user && (
-          <li>
-            <NavLink
-              to="/users"
-              exact={true}
-              style={{ textDecoration: "none" }}
-              activeClassName="active"
-            >
-              Users
-            </NavLink>
-          </li>
-        )}
-        {user && (
-          <li>
-            <i class="fas fa-shopping-cart"
-              onClick={(e) => history.push(`/shopping_cart/${user.id}`)}
-            ></i>
-          </li>
+          <ShoppingCartModal />
         )}
         {user && <li className="username"> {user.username} </li>}
         {user && (
