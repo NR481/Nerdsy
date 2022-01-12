@@ -15,6 +15,7 @@ const ShoppingCart = () => {
   useEffect(() => {
     dispatch(allProducts());
     dispatch(getShoppingCart(user?.id))
+    console.log(cart)
   }, [dispatch])
 
 
@@ -49,7 +50,7 @@ const ShoppingCart = () => {
               Quantity
               <input
                 type="text"
-                value={item?.quantity}
+                value={quantity}
                 onChange={(e) => {
                   setQuantity(e.target.value);
                 }}
