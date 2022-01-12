@@ -14,16 +14,16 @@ const ShoppingCart = () => {
 
   useEffect(() => {
     dispatch(allProducts());
-    dispatch(getShoppingCart(user.id))
+    dispatch(getShoppingCart(user?.id))
   }, [dispatch])
 
 
   const handleDelete = (product) => {
-    return dispatch(removeFromCart(product, cart.id))
+    return dispatch(removeFromCart(product, cart?.id))
   }
 
   const updateQuantity = (item, quantity=1) => {
-    return dispatch(updateShoppingCart(item.id, quantity, cart?.id))
+    return dispatch(updateShoppingCart(item?.id, quantity, cart?.id))
   }
   
   return (
@@ -33,7 +33,7 @@ const ShoppingCart = () => {
         const id = item.productId 
         const product = productObj[id]
         return (
-          <span key={item.id}>
+          <span key={item?.id}>
             <h2>{product?.name}</h2>
             <img src={product?.imageUrl} />
             <button
@@ -45,11 +45,11 @@ const ShoppingCart = () => {
             >
               Remove From Cart
             </button>
-            <label key={item.id}>
+            <label key={item?.id}>
               Quantity
               <input
                 type="text"
-                value={item.quantity}
+                value={item?.quantity}
                 onChange={(e) => {
                   setQuantity(e.target.value);
                 }}
