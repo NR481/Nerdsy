@@ -1,60 +1,86 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './SearchBar';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './css/Navbar.css'
 
-const NavBar = ({email, password}) => {
+const NavBar = ({ email, password }) => {
+  const history = useHistory()
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch()
 
 
   return (
     <nav>
-      <Link to='/'>
-        <h1 className='name-banner'>Nerdsy</h1>
+      <Link to="/">
+        <h1 className="name-banner">Nerdsy</h1>
       </Link>
-      <div className='search-bar'>
+      <div className="search-bar">
         <SearchBar />
       </div>
-      <ul className='nav-items'>
+      <ul className="nav-items">
         <li>
-          <NavLink to='/' exact={true} style={{textDecoration: 'none'}}activeClassName='active'>
+          <NavLink
+            to="/"
+            exact={true}
+            style={{ textDecoration: "none" }}
+            activeClassName="active"
+          >
             Home
           </NavLink>
         </li>
 
-        { !user &&
+        {!user && (
           <li>
-            <NavLink to='/login' exact={true} style={{textDecoration: 'none'}} activeClassName='active'>
+            <NavLink
+              to="/login"
+              exact={true}
+              style={{ textDecoration: "none" }}
+              activeClassName="active"
+            >
               Login
             </NavLink>
           </li>
-        }
-        { !user &&
+        )}
+        {!user && (
           <li>
-            <NavLink to='/sign-up' exact={true} style={{textDecoration: 'none'}} activeClassName='active'>
+            <NavLink
+              to="/sign-up"
+              exact={true}
+              style={{ textDecoration: "none" }}
+              activeClassName="active"
+            >
               Sign Up
             </NavLink>
           </li>
-        }
-        { user &&
+        )}
+        {user && (
           <li>
-            <NavLink to='/users' exact={true} style={{textDecoration: 'none'}} activeClassName='active'>
+            <NavLink
+              to="/users"
+              exact={true}
+              style={{ textDecoration: "none" }}
+              activeClassName="active"
+            >
               Users
             </NavLink>
           </li>
-        }
-        { user &&
-          <li className='username'> {user.username} </li>
-        }
-        { user &&
+        )}
+        {user && (
+          <li>
+            <i class="fas fa-shopping-cart"
+              onClick={(e) => history.push(`/shopping_cart/${user.id}`)}
+            ></i>
+          </li>
+        )}
+        {user && <li className="username"> {user.username} </li>}
+        {user && (
           <li>
             <LogoutButton />
           </li>
-        }
+        )}
       </ul>
     </nav>
   );
