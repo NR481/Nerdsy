@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { allProducts } from "../store/products";
 import AddProductModal from "./addProduct/addProductModal";
-import { addToCart } from "../store/shoppingCart";
 import DeleteProduct from "./DeleteProductButton";
 import EditProductModal from "./editProduct/editProductModal";
 
@@ -19,9 +18,6 @@ const MainPage = () => {
     dispatch(allProducts())
   }, [dispatch])
 
-  const handleAddToCart = productId => {
-    return dispatch(addToCart(productId, user.id))
-  }
 
   const products = Object.values(productObj);
 
@@ -43,23 +39,6 @@ const MainPage = () => {
               <img src={product?.imageUrl} />
             </Link>
             <div>{product.price}</div>
-            <button
-              type="button"
-              value={product}
-              onClick={(e) => {
-                e.preventDefault();
-                handleAddToCart(product.id);
-                const confirmed = window.confirm(
-                  `Added ${product.name} to your cart!
-                  Would you like to go to your cart now?`
-                )
-                if (confirmed) {
-                  return history.push(`/shopping_cart/${user.id}`)
-                }
-              }}
-            >
-              add to cart
-            </button>
             {sessionUser?.id === product?.userId && (
               <div>
                 <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} />
