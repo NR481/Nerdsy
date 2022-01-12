@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import SearchBar from './SearchBar';
 
 const NavBar = () => {
   return (
@@ -29,6 +29,9 @@ const NavBar = () => {
         </li>
         <li>
           <LogoutButton />
+        </li>
+        <li>
+          <SearchBar />
         </li>
       </ul>
     </nav>
