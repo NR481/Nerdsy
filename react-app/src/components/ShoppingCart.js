@@ -15,6 +15,7 @@ const ShoppingCart = () => {
   useEffect(() => {
     dispatch(allProducts());
     dispatch(getShoppingCart(user?.id))
+    console.log(cart)
   }, [dispatch])
 
 
@@ -45,21 +46,17 @@ const ShoppingCart = () => {
             >
               Remove From Cart
             </button>
-            <label key={item?.id}>
-              Quantity
-              <input
-                type="text"
-                value={item?.quantity}
-                onChange={(e) => {
-                  setQuantity(e.target.value);
-                }}
-                />
-              <i class="fas fa-clipboard-check"
-                onClick={(e) => {
-                  updateQuantity(item, quantity);
-                }}
-              ></i>
-            </label>
+            <div>
+              <button onClick={(e) => {
+                setQuantity(quantity + 1)
+                updateQuantity(item, quantity);
+              }}>+</button>
+              <h3>Quantity: {item?.quantity}</h3>
+              <button onClick={(e) => {
+                setQuantity(quantity - 1)
+                updateQuantity(item, quantity);
+              }}>-</button>
+            </div>
             <h3>{product?.price * item?.quantity}</h3>
           </span>
         );

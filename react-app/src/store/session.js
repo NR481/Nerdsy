@@ -20,7 +20,7 @@ const getUsers = (users) => ({
 const initialState = { user: null, users: {} };
 
 export const authenticate = () => async (dispatch) => {
-  const response = await fetch('/api/auth', {
+  const response = await fetch('/api/auth/', {
     headers: {
       'Content-Type': 'application/json'
     }

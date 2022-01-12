@@ -51,9 +51,29 @@ const MainPage = () => {
               </div>
             ))}
         </div>
+      <h1>Nerdsy</h1>
+      <AddProductModal />
+      <h2>Featured Items</h2>
+      <div className="productsContainer">
+        {products?.length > 0 &&
+          products.map((product) => (
+            <div key={product.id}>
+              <div> {product.name} ${product.price}</div>
+              <Link to={`/products/${product.id}`}>
+                <img src={product?.imageUrl} className="img" />
+              </Link>
 
+              {sessionUser?.id === product?.userId && (
+                <div>
+                  <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} />
+                  {/* <DeleteProduct id={product?.id} /> */}
+                </div>
+              )}
+            </div>
+          ))}
       </div>
     </div>
+    <
   );
 }
 
