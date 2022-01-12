@@ -39,9 +39,9 @@ const NavBar = () => {
             <LogoutButton />
           </li>
         }
-          <li>
+          <div>
             <SearchBar />
-          </li>
+          </div>
 
       </ul>
     </nav>
