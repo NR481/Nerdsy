@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './SearchBar';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './css/Navbar.css'
 
 const NavBar = ({email, password}) => {
@@ -12,7 +13,9 @@ const NavBar = ({email, password}) => {
 
   return (
     <nav>
-      <h1 className='name-banner'>Nerdsy</h1>
+      <Link to='/'>
+        <h1 className='name-banner'>Nerdsy</h1>
+      </Link>
       <div className='search-bar'>
         <SearchBar />
       </div>

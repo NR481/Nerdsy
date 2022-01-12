@@ -5,7 +5,7 @@ class Product(db.Model):
 
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(50), nullable=False)
-  price = db.Column(db.Numeric(scale=2, precision=5, asdecimal=True), nullable=False)
+  price = db.Column(db.Numeric(scale=4, precision=6, asdecimal=True), nullable=False)
   description = db.Column(db.String)
   imageUrl = db.Column(db.String(280))
   rating = db.Column(db.Integer)
