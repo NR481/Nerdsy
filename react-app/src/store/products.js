@@ -46,7 +46,7 @@ export const addProduct = (product) => async (dispatch) => {
 
 
 export const deleteAProduct = (id) => async(dispatch) => {
-  const response = await fetch(`/api/products/${id}`, {
+  const response = await fetch(`/api/products/${id}/`, {
     method: 'DELETE'
   })
   if(response.ok) {
@@ -55,7 +55,7 @@ export const deleteAProduct = (id) => async(dispatch) => {
 }
 
 export const editProduct = (product, id) => async(dispatch) => {
-  const response = await fetch(`/api/products/${id}`, {
+  const response = await fetch(`/api/products/${id}/`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(product)
