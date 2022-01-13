@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { FaStar } from 'react-icons/fa'
+import { commentEdit } from "../store/comments";
 
 
-const StarRating = () => {
-    const [rating, setRating] = useState(null)
+const StarRating = ({rating}) => {
+    const [newRating, setNewRating] = useState(null)
     const [hover, setHover] = useState(null)
 
     return (
@@ -18,11 +19,11 @@ const StarRating = () => {
                         name='rating'
                         className='radio'
                         value={ratingValue}
-                        onClick={() => setRating(ratingValue)}
+                        onClick={() => setNewRating(ratingValue)}
                         />
                         <FaStar
                         className="star"
-                        color={ratingValue <= (hover || rating) ? "#ffc107": "#000000"}
+                        color={ratingValue <= (hover || newRating) ? "#ffc107": "#000000"}
                         onMouseEnter={() => setHover(ratingValue)}
                         onMouseLeave={() => setHover(null)}
                         />
