@@ -3,7 +3,7 @@ nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background: linear-gradient(to right,#575856,  #E2E3E5);
+    background: linear-gradient(to right, #192122, #575856);
     width: 100%;
     height: 75px;
     border: 1px solid #575856;
@@ -54,10 +54,6 @@ nav {
     font-size: 40px;
     font-family: 'Audiowide', cursive;
     color: #E2E3E5;
-}
-
-.username {
-    color: #3724CE;
 }
 
 .logout {

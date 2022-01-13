@@ -28,50 +28,29 @@ const ShoppingCart = () => {
   return (
     <div className="innerModal">
       <div className="shopping-cart-title">
-      <h1 id="shopping-cart-title">Shopping Cart</h1>
+        <h1 id="shopping-cart-title">Shopping Cart</h1>
       </div>
       <div>
-        <h3>ITEMS ({ cartItems?.length })</h3>
+        <h3>ITEMS ({cartItems?.length})</h3>
       </div>
-      {cartItems?.map(item => {
-        const id = item.productId
-        const product = productObj[id]
+      {cartItems?.map((item) => {
+        const id = item.productId;
+        const product = productObj[id];
         return (
-          <CartItem item={item} cart={cart} product={product}/>
-          // <span key={item?.id}>
-          //   <h2>{product?.name}</h2>
-          //   <img src={product?.imageUrl} />
-            // <button
-            //   type="button"
-            //   onClick={(e) => {
-            //     e.preventDefault();
-            //     handleDelete(product);
-            //   }}
-            // >
-            //   Remove From Cart
-            // </button>
-          //   <div>
-          //     <button onClick={(e) => {
-          //       setQuantity(quantity + 1)
-          //       updateQuantity(item, quantity);
-          //     }}>+</button>
-          //     <h3>Quantity: {item?.quantity}</h3>
-          //     <button onClick={(e) => {
-          //       setQuantity(quantity - 1)
-          //       updateQuantity(item, quantity);
-          //       }}
-          //       disabled={item.quantity === 0}
-          //       >-</button>
-          //   </div>
-          //   <h3>{product?.price * item?.quantity}</h3>
-          // </span>
+          <CartItem
+            item={item}
+            cart={cart}
+            product={product}
+            handleDelete={handleDelete}
+          />
         );
       })}
       <div className="cart-total">
-      <h2>{cart?.total}</h2>
+        <h2>Total:</h2>
+        <h2> $ {cart?.total}</h2>
       </div>
     </div>
-  )
+  );
 };
 
 export default ShoppingCart;

@@ -18,7 +18,7 @@ const CartItem = ({ item, cart, product, handleDelete }) => {
       </div>
       <div className="item-content">
         <div className="item-details">
-          <h2>{product?.name}</h2>
+          <h2 className="product-name">{product?.name}</h2>
           <p className="item-p">{product?.franchise}</p>
           <p className="item-p">{product?.category}</p>
           <p className="item-p">{product?.description}</p>

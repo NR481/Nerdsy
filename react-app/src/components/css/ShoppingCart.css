@@ -53,6 +53,10 @@
   width: 500px;
 }
 
+.product-name {
+  font-weight: bolder;
+}
+
 .item-changes {
   display:flex;
   width: 250px;
@@ -103,4 +107,15 @@ price-element {
   justify-content: center;
   align-items: center;
   background-color: snow;
+}
+
+.cart-total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0px;
+  background: linear-gradient(to bottom, #E2E3E5, #c4c4c4da);
 }
