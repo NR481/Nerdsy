@@ -22,3 +22,8 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.search-img {
+  width: 340px;
+  height:270px;
+}
