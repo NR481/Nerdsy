@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getShoppingCart, removeFromCart } from "../store/shoppingCart";
 import { allProducts } from "../store/products";
 import { updateShoppingCart } from "../store/shoppingCart";
+import "./css/ShoppingCart.css";
 
 const ShoppingCart = () => {
   const user = useSelector(state => state.session.user)
@@ -28,7 +29,7 @@ const ShoppingCart = () => {
   }
   
   return (
-    <div>
+    <div className="innerModal">
       <h1>Shopping Cart</h1>
       {cartItems?.map(item => {
         const id = item.productId 
