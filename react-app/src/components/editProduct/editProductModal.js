@@ -7,7 +7,7 @@ const EditProductModal = ({id, editName, editPrice, editDescription, editImageUr
     const [modal, setModal] = useState(false)
 
     return(
-        <div>
+        <>
             <button onClick={() => setModal(true)} className="product-edit">
                 Edit Listing
             </button>
@@ -16,7 +16,7 @@ const EditProductModal = ({id, editName, editPrice, editDescription, editImageUr
                     <EditProduct id={id} showModal={setModal} editName={editName} editPrice={editPrice} editDescription={editDescription} editImageUrl={editImageUrl} editRating={editRating} editCategory={editCategory} editFranchise={editFranchise} />
                 </Modal>
             )}
-        </div>
+        </>
     )
 }
 

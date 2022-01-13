@@ -8,8 +8,8 @@ const EditCommentModal = ({ user, signedInUser, comment, rating }) => {
 
     return (
         <div>
-            <button onClick={() => setModal(true)}>
-                edit
+            <button onClick={() => setModal(true)} className="edit-comment-button">
+                Edit Comment
             </button>
             {modal && (
                 <Modal onClose={() => setModal(false)}>

@@ -6,6 +6,7 @@ import { allUsers } from "../store/session";
 import { addNewComment } from "../store/comments";
 // import EditCommentButton from "./EditCommentButton";
 import EditCommentModal from "./editCommentModal"
+import './css/Comments.css'
 
 const Comments = ({ product }) => {
     const dispatch = useDispatch()
@@ -56,29 +57,36 @@ const Comments = ({ product }) => {
         return +comment.productId === +product?.id
     });
 
+    console.log("RATING:",comments)
+
     return (
         <>
-            <h2>Comments</h2>
+            <h2 className="title-comment">Comments</h2>
             {productComment?.length > 0 &&
                 productComment?.map(comment => (
                     <div>
-                        <p>{`${users[comment?.userId - 1]?.firstName} ${users[comment?.userId - 1]?.lastName}`}</p>
-                        <p>{comment?.comment}</p>
-                        {signedInUser?.id === comment?.userId && (
-                            <EditCommentModal
-                            user={users[comment?.userId-1]}
-                            signedInUser={signedInUser}
-                            comment={comment}
-                            rating={comment?.rating}
-                        />
-                        )}
-                        
+                        <div className="user-comment">
+                            <p className="from-user">{`From: ${users[comment?.userId - 1]?.firstName} ${users[comment?.userId - 1]?.lastName}`}</p>
+                            <p className="user-rating">{comment.rating === 5? "★★★★★" : comment.rating === 4? "★★★★" : comment.rating === 3? "★★★" : comment.rating === 2? "★★" : "★"}</p>
+                            <div className="product-comment">{comment?.comment}
+                            {signedInUser?.id === comment?.userId && (
+                                <EditCommentModal
+                                user={users[comment?.userId-1]}
+                                signedInUser={signedInUser}
+                                comment={comment}
+                                rating={comment?.rating}
+                            />
+                            )}
+
+                            </div>
+                        </div>
+
                     </div>
                 ))
             }
             {signedInUser !== null &&
                 <form onSubmit={handleSubmit}>
-                    <input
+                    <textarea
                         placeholder="Leave a comment..."
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}

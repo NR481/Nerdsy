@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { commentEdit } from "../store/comments";
 import DeleteCommentButton from "./DeleteCommentButton";
+import './css/Comments.css'
 
 const EditCommentButton = ({ user, signedInUser, comment, rating, showModal }) => {
   const [editComment, setComment] = useState(comment?.comment)
