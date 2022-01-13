@@ -10,11 +10,6 @@ import ShoppingCartModal from './ShoppingCartModal';
 const NavBar = ({ email, password }) => {
   const history = useHistory()
   const user = useSelector(state => state.session.user)
-<<<<<<< HEAD
-
-=======
->>>>>>> 6ce5dd5295b2ef9f81a486a64c64e0053637e129
-
   return (
     <nav>
       <Link to="/">
