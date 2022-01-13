@@ -7,9 +7,9 @@ const DeleteProduct = ({id}) => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const onSubmit = () => {
-        dispatch(deleteAProduct(id))
-        history.push('/')
+    const onSubmit = async () => {
+        await dispatch(deleteAProduct(id))
+        return history.push('/')
     }
 
 
@@ -22,7 +22,7 @@ const DeleteProduct = ({id}) => {
                 delete
             </button>
         </div>
-        
+
     )
 }
 
