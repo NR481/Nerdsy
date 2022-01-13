@@ -2,21 +2,13 @@ import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './SearchBar';
-<<<<<<< HEAD
-import { useSelector } from 'react-redux';
-=======
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
->>>>>>> main
 import './css/Navbar.css'
 import ShoppingCartModal from './ShoppingCartModal';
 
-<<<<<<< HEAD
-const NavBar = () => {
-=======
 const NavBar = ({ email, password }) => {
   const history = useHistory()
->>>>>>> main
   const user = useSelector(state => state.session.user)
 
   return (
