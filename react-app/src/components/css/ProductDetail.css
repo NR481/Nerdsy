@@ -17,6 +17,7 @@ html {
   grid-column: 1 / span 1;
   grid-row: 1 / 4;
   width: 500px;
+  height: 400px;
   border: black 2px solid;
 }
 
