@@ -53,12 +53,17 @@ nav {
 /* .active {
     color: #3724CE;
     text-decoration: none;
+    text-align: center;
 }
 
+ul {
+    text-align: center;
+    margin: 0;
+}
 li {
     text-decoration: none;
-    color: #3724CE;
-    list-style-type: none
+    color: red;
+    list-style-type: none;
 }
 
 .logout {
@@ -74,5 +79,10 @@ li {
 }
 
 .active:visited {
+<<<<<<< HEAD
+    color: #3724CE;
+}
+=======
     color: #575856
 } */
+>>>>>>> main
