@@ -38,12 +38,8 @@ const ProductDetail = () => {
           e.preventDefault();
           handleAddToCart(product.id);
           const confirmed = window.confirm(
-            `Added ${product.name} to your cart!
-                  Would you like to go to your cart now?`
+            `Added ${product.name} to your cart!`
           );
-          // if (confirmed) {
-          //   return history.push(`/shopping_cart/${user?.id}`);
-          // }
         }}
       >
         add to cart
