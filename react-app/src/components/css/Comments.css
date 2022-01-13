@@ -42,3 +42,7 @@ p {
 label {
     margin-left: 5px;
 }
+
+.comment-box {
+    justify-content: center;
+}
