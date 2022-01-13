@@ -40,9 +40,10 @@ def add_product():
     db.session.commit()
 
     return product.to_dict()
+  return form.errors
 
 
-@product_routes.route('/<int:id>', methods=['DELETE'])
+@product_routes.route('/<int:id>/', methods=['DELETE'])
 @login_required
 def delete_product(id):
   product = Product.query.get(id)
@@ -67,5 +68,6 @@ def edit_product(id):
     product.franchise=form.data['franchise']
     db.session.commit()
     return product.to_dict()
+  return form.errors
 
   

@@ -46,7 +46,7 @@ export const addProduct = (product) => async (dispatch) => {
 
 
 export const deleteAProduct = (id) => async(dispatch) => {
-  const response = await fetch(`/api/products/${id}`, {
+  const response = await fetch(`/api/products/${id}/`, {
     method: 'DELETE'
   })
   if(response.ok) {

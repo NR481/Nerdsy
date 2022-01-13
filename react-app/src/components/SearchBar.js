@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchResults } from "../store/search";
 import { useHistory } from "react-router-dom";
+import '../components/MainPage.css'
 
 const SearchBar = () => {
   const [input, setInput] = useState('')
@@ -22,8 +23,9 @@ const SearchBar = () => {
         placeholder="Search"
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        className="search-field"
       />
-      <button><i class="fas fa-search" className="search" >Search</i></button>
+      <button className="search-button"><i class="fas fa-search"></i></button>
     </form>
   )
 }

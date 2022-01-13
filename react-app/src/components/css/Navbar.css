@@ -1,4 +1,56 @@
-.active {
+nav {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color:  #192122;
+    width: 100%;
+    height: 75px;
+    border: 1px solid #575856;
+}
+
+.nav-items {
+    display: flex;
+    padding-right: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    margin-right: 280px;
+}
+
+.search-field {
+    height: 20px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #575856;
+}
+
+.search-button {
+    height: 25px;
+    margin-left: -5px;
+    background-color: #3724CE;
+    color: #E2E3E5;
+    border-radius: 5px;
+    border: 1px solid #575856;
+}
+
+.nav-items > li{
+    margin: 20px;
+    font-family: 'Audiowide', cursive;
+}
+
+.name-banner {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 40px;
+    font-family: 'Audiowide', cursive;
+    color: #3724CE;
+}
+
+/* .active {
     color: #3724CE;
     text-decoration: none;
     text-align: center;
@@ -27,5 +79,10 @@ li {
 }
 
 .active:visited {
+<<<<<<< HEAD
     color: #3724CE;
 }
+=======
+    color: #575856
+} */
+>>>>>>> main
