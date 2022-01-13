@@ -28,23 +28,29 @@ const ShoppingCart = () => {
   return (
     <div className="innerModal">
       <div className="shopping-cart-title">
-      <h1 id="shopping-cart-title">Shopping Cart</h1>
+        <h1 id="shopping-cart-title">Shopping Cart</h1>
       </div>
       <div>
-        <h3>ITEMS ({ cartItems?.length })</h3>
+        <h3>ITEMS ({cartItems?.length})</h3>
       </div>
-      {cartItems?.map(item => {
-        const id = item.productId
-        const product = productObj[id]
+      {cartItems?.map((item) => {
+        const id = item.productId;
+        const product = productObj[id];
         return (
-          <CartItem item={item} cart={cart} product={product} handleDelete={handleDelete}/>
+          <CartItem
+            item={item}
+            cart={cart}
+            product={product}
+            handleDelete={handleDelete}
+          />
         );
       })}
       <div className="cart-total">
-      <h2>{cart?.total}</h2>
+        <h2>Total:</h2>
+        <h2> $ {cart?.total}</h2>
       </div>
     </div>
-  )
+  );
 };
 
 export default ShoppingCart;
