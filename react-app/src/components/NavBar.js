@@ -23,7 +23,7 @@ const NavBar = ({ email, password }) => {
           <NavLink
             to="/"
             exact={true}
-            style={{ textDecoration: "none" }}
+            style={{ textDecoration: "none", color: "#E2E3E5" }}
             activeClassName="active"
           >
             Home
@@ -35,7 +35,7 @@ const NavBar = ({ email, password }) => {
             <NavLink
               to="/login"
               exact={true}
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration: "none", color: "#E2E3E5" }}
               activeClassName="active"
             >
               Login
@@ -47,8 +47,7 @@ const NavBar = ({ email, password }) => {
             <NavLink
               to="/sign-up"
               exact={true}
-              style={{ textDecoration: "none" }}
-              activeClassName="active"
+              style={{ textDecoration: "none", color: "#E2E3E5" }}
             >
               Sign Up
             </NavLink>
