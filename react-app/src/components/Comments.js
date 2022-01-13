@@ -66,7 +66,7 @@ const Comments = ({ product }) => {
                 productComment?.map(comment => (
                     <div className="comment-box">
                         <div className="user-comment">
-                            <p className="from-user">{`From: ${users[comment?.userId - 1]?.firstName} ${users[comment?.userId - 1]?.lastName}`}</p>
+                            <p className="from-user">{`🤓 ${users[comment?.userId - 1]?.firstName} ${users[comment?.userId - 1]?.lastName}`}</p>
                             <p className="user-rating">{comment.rating === 5? "★★★★★" : comment.rating === 4? "★★★★" : comment.rating === 3? "★★★" : comment.rating === 2? "★★" : "★"}</p>
                             <div className="product-comment">{comment?.comment}
                             {signedInUser?.id === comment?.userId && (
