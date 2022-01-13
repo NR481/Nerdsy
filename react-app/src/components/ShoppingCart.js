@@ -25,13 +25,14 @@ const ShoppingCart = () => {
     return dispatch(removeFromCart(product, cart?.id))
   }
 
-  const updateQuantity = async (item, quantity=1) => {
-    dispatch(updateShoppingCart(item?.id, quantity, cart?.id))
-  }
-
   return (
     <div className="innerModal">
-      <h1>Shopping Cart</h1>
+      <div className="shopping-cart-title">
+      <h1 id="shopping-cart-title">Shopping Cart</h1>
+      </div>
+      <div>
+        <h3>ITEMS ({ cartItems?.length })</h3>
+      </div>
       {cartItems?.map(item => {
         const id = item.productId
         const product = productObj[id]
@@ -66,7 +67,9 @@ const ShoppingCart = () => {
           // </span>
         );
       })}
+      <div className="cart-total">
       <h2>{cart?.total}</h2>
+      </div>
     </div>
   )
 };
