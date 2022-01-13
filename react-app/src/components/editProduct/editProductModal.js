@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Modal } from "../../context/Modal";
 import EditProduct from "./editProduct";
+import '../css/ProductDetail.css'
 
 const EditProductModal = ({id, editName, editPrice, editDescription, editImageUrl, editRating, editCategory, editFranchise}) => {
     const [modal, setModal] = useState(false)
 
     return(
         <div>
-            <button onClick={() => setModal(true)}>
-                edit
+            <button onClick={() => setModal(true)} className="product-edit">
+                Edit Listing
             </button>
             {modal && (
                 <Modal onClose={() => setModal(false)}>

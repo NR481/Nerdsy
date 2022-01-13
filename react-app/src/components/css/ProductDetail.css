@@ -1,0 +1,61 @@
+.detail-container {
+  position: relative;
+  display: grid;
+  grid-template-columns:  600px 350px;
+  grid-template-rows: repeat(5,75px);
+  padding: 80px;
+  margin-left: 100px;
+  font-family: 'Jost', sans-serif;
+  line-height: 20px;
+}
+
+.product-img {
+  grid-column: 1 / span 1;
+  grid-row: 1 / 4;
+  width: 500px;
+}
+
+.product-name {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+  margin-top: 10px;
+}
+
+.description {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+}
+
+.product-price {
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
+  padding-top: 25px;
+  font-size: 25px;
+}
+
+.product-quantity {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 / span 1;
+  grid-row: 4 / span 1;
+}
+
+.add-cart {
+  grid-column: 2 / span 1;
+  grid-row: 5 / span 1;
+  font-family: inherit;
+  border-radius: 15px;
+  height: 40px;
+  border: 1px solid gray;
+  margin-top: 10px;
+}
+
+.product-edit {
+  position: fixed;
+  top: 570px;
+  left: 250px;
+  height: 40px;
+  width: 336px;
+  border-radius: 15px;
+  border: 1px solid gray;
+}

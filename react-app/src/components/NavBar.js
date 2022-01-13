@@ -10,9 +10,6 @@ import ShoppingCartModal from './ShoppingCartModal';
 const NavBar = ({ email, password }) => {
   const history = useHistory()
   const user = useSelector(state => state.session.user)
-  const dispatch = useDispatch()
-
-
   return (
     <nav>
       <Link to="/">
