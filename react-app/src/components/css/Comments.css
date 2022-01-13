@@ -46,3 +46,8 @@ label {
 .comment-box {
     justify-content: center;
 }
+
+button {
+    border-radius: 15px;
+    margin-left: 5px;
+}

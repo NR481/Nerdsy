@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Modal } from "./../context/Modal";
 import EditCommentButton from "./EditCommentButton";
+import './css/Comments.css'
 
 
 const EditCommentModal = ({ user, signedInUser, comment, rating }) => {

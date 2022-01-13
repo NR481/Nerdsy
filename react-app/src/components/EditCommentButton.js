@@ -35,7 +35,7 @@ const EditCommentButton = ({ user, signedInUser, comment, rating, showModal }) =
         <button onClick={handleClick}>Edit</button>
       } */}
         <form onSubmit={handleSubmit}>
-          <input
+          <textarea className="comment-box-add"
             value={editComment}
             onChange={(e) => setComment(e.target.value)}
           />
