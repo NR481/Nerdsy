@@ -47,7 +47,7 @@ nav {
     font-family: 'Audiowide', cursive;
 }
 
-.button:hover {
+button:hover {
     cursor: pointer;
 }
 

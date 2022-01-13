@@ -35,3 +35,11 @@
 h2 {
     font-size: 100px;
 }
+
+.radio {
+    display: none;
+}
+
+.star {
+    cursor: pointer;
+}

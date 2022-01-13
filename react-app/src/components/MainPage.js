@@ -37,11 +37,11 @@ const MainPage = () => {
           {products?.length > 0 &&
             products.map((product) => (
               <div key={product.id}>
-                <div> {product.name} </div>
+                <div> ${product.price.toFixed(2)} {product.name}</div>
+                {/* <div>${product.price.toFixed(2)}</div> */}
                 <Link to={`/products/${product.id}`}>
                   <img src={product?.imageUrl} className="img" />
                 </Link>
-                <div>${product.price.toFixed(2)}</div>
                 {sessionUser?.id === product?.userId && (
                   <div>
                     <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} />

@@ -6,6 +6,7 @@ import { allUsers } from "../store/session";
 import { addNewComment } from "../store/comments";
 // import EditCommentButton from "./EditCommentButton";
 import EditCommentModal from "./editCommentModal"
+import StarRating from "./StarRating";
 
 const Comments = ({ product }) => {
     const dispatch = useDispatch()
@@ -64,6 +65,7 @@ const Comments = ({ product }) => {
                     <div>
                         <p>{`${users[comment?.userId - 1]?.firstName} ${users[comment?.userId - 1]?.lastName}`}</p>
                         <p>{comment?.comment}</p>
+                        <StarRating />
                         {signedInUser?.id === comment?.userId && (
                             <EditCommentModal
                             user={users[comment?.userId-1]}
@@ -72,7 +74,7 @@ const Comments = ({ product }) => {
                             rating={comment?.rating}
                         />
                         )}
-                        
+
                     </div>
                 ))
             }
@@ -83,7 +85,16 @@ const Comments = ({ product }) => {
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                     />
-                    <label>Rating: </label>
+                    <StarRating />
+
+                            {/* <select
+                                value={editRating}
+                                onChange={(e) => setRating(e.target.value)}
+                            ></select>
+                        <select
+                          value={editRating}
+                          onChange={(e) => setRating(e.target.value)}
+                        ></select>
                     <select
                         value={rating}
                         onChange={(e) => setRating(e.target.value)}
@@ -93,7 +104,7 @@ const Comments = ({ product }) => {
                         <option value='3'>3</option>
                         <option value='4'>4</option>
                         <option value='5'>5</option>
-                    </select>
+                    </select> */}
                     <button>Submit</button>
                 </form>
             }

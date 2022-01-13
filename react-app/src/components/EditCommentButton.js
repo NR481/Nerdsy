@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { commentEdit } from "../store/comments";
 import DeleteCommentButton from "./DeleteCommentButton";
+import StarRating from "./StarRating";
 
 const EditCommentButton = ({ user, signedInUser, comment, rating, showModal }) => {
   const [editComment, setComment] = useState(comment?.comment)
@@ -34,12 +35,13 @@ const EditCommentButton = ({ user, signedInUser, comment, rating, showModal }) =
         <button onClick={handleClick}>Edit</button>
       } */}
         <form onSubmit={handleSubmit}>
-          <input
-            value={editComment}
-            onChange={(e) => setComment(e.target.value)}
-          />
           <label>Rating: </label>
-          <select
+            <input
+              value={editComment}
+              onChange={(e) => setComment(e.target.value)}
+            />
+            <StarRating />
+          {/* <select
             value={editRating}
             onChange={(e) => setRating(e.target.value)}
           >
@@ -48,7 +50,7 @@ const EditCommentButton = ({ user, signedInUser, comment, rating, showModal }) =
             <option value='3'>3</option>
             <option value='4'>4</option>
             <option value='5'>5</option>
-          </select>
+          </select> */}
           <button>Submit</button>
           <DeleteCommentButton id={comment?.id}/>
         </form>

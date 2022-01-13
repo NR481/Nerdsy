@@ -26,25 +26,25 @@ const ShoppingCart = () => {
   const updateQuantity = (item, quantity=1) => {
     return dispatch(updateShoppingCart(item?.id, quantity, cart?.id))
   }
-  
+
   return (
     <div>
       <h1>Shopping Cart</h1>
       {cartItems?.map(item => {
-        const id = item.productId 
+        const id = item.productId
         const product = productObj[id]
         return (
           <span key={item?.id}>
             <h2>{product?.name}</h2>
             <img src={product?.imageUrl} />
             <button
+              class="fas fa-trash-alt"
               type="button"
               onClick={(e) => {
                 e.preventDefault();
                 handleDelete(product);
               }}
             >
-              Remove From Cart
             </button>
             <div>
               <button onClick={(e) => {
