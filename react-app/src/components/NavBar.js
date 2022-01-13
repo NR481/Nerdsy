@@ -9,7 +9,6 @@ import './css/Navbar.css'
 const NavBar = ({ email, password }) => {
   const history = useHistory()
   const user = useSelector(state => state.session.user)
-  const dispatch = useDispatch()
 
 
   return (
