@@ -36,9 +36,15 @@ nav {
     border: 1px solid #575856;
 }
 
-.nav-items > li{
+.nav-items > li {
     margin: 20px;
     font-family: 'Audiowide', cursive;
+    color: #E2E3E5;
+    text-decoration: none;
+}
+
+.nav-items > li:visited {
+    color: #E2E3E5;
 }
 
 .name-banner {
@@ -47,13 +53,20 @@ nav {
     left: 20px;
     font-size: 40px;
     font-family: 'Audiowide', cursive;
-    color: #3724CE;
+    color: #E2E3E5;
 }
 
 .username {
     color: #3724CE;
 }
 
+.logout {
+    border: none;
+    background: none;
+    font-family: 'Audiowide', cursive;
+    font-size: 15px;
+    color:  #E2E3E5;
+}
 /* .active {
     color: #3724CE;
     text-decoration: none;
@@ -70,9 +83,6 @@ li {
     list-style-type: none;
 }
 
-.logout {
-    border: solid black 2px;
-}
 
 .username {
     color: #3724CE;

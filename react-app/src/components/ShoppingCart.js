@@ -37,7 +37,34 @@ const ShoppingCart = () => {
         const id = item.productId
         const product = productObj[id]
         return (
-          <CartItem item={item} cart={cart} product={product} handleDelete={handleDelete}/>
+          <CartItem item={item} cart={cart} product={product}/>
+          // <span key={item?.id}>
+          //   <h2>{product?.name}</h2>
+          //   <img src={product?.imageUrl} />
+            // <button
+            //   type="button"
+            //   onClick={(e) => {
+            //     e.preventDefault();
+            //     handleDelete(product);
+            //   }}
+            // >
+            //   Remove From Cart
+            // </button>
+          //   <div>
+          //     <button onClick={(e) => {
+          //       setQuantity(quantity + 1)
+          //       updateQuantity(item, quantity);
+          //     }}>+</button>
+          //     <h3>Quantity: {item?.quantity}</h3>
+          //     <button onClick={(e) => {
+          //       setQuantity(quantity - 1)
+          //       updateQuantity(item, quantity);
+          //       }}
+          //       disabled={item.quantity === 0}
+          //       >-</button>
+          //   </div>
+          //   <h3>{product?.price * item?.quantity}</h3>
+          // </span>
         );
       })}
       <div className="cart-total">

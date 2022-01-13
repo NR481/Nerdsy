@@ -4,12 +4,10 @@
     flex-direction: row-reverse;
     flex-wrap: wrap;
     align-items: center;
-    width: 75%;
-    margin: auto;
-    padding: 10px;
-    border: 3px solid #3724CE;
+    width: 100%;
+    margin-top: -5px;
+    padding: 20px;
     background-color: #E2E3E5;
-    margin-top: 100px;
 }
 
 .splash-image {
@@ -26,4 +24,15 @@
     height: 300px;
     margin: auto;
     padding: 10px;
+}
+
+.product-price {
+    border: black solid 2px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: #E2E3E5;
+    color: #3724CE
 }

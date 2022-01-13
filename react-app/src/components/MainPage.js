@@ -24,15 +24,13 @@ const MainPage = () => {
 
 
   return (
-    <div>
+    <div className="page-container">
       <img
         className="splash-image"
         src="https://cdn1.parksmedia.wdprapps.disney.com/media/blog/wp-content/uploads/2014/11/bhsftd485724.jpg"
         alt="city skyline"
       />
-      <div className="page-container">
-        <AddProductModal />
-        <h2>Featured Items</h2>
+      <div>
         <div className="productsContainer">
           {products?.length > 0 &&
             products.map((product) => (
@@ -41,7 +39,7 @@ const MainPage = () => {
                 <Link to={`/products/${product.id}`}>
                   <img src={product?.imageUrl} className="img" />
                 </Link>
-                <div>{product.price}</div>
+                <div className="product-price">${product.price}</div>
                 {sessionUser?.id === product?.userId && (
                   <div>
                     {/* <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} /> */}
