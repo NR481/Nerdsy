@@ -24,12 +24,14 @@
 .description {
   grid-column: 2 / span 1;
   grid-row: 2 / span 1;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .product-price {
   grid-column: 2 / span 1;
   grid-row: 3 / span 1;
-  padding-top: 25px;
+  padding-top: 50px;
   font-size: 25px;
 }
 

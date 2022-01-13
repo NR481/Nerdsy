@@ -4,7 +4,7 @@ import { commentEdit } from "../store/comments";
 
 
 const StarRating = ({rating}) => {
-    const [newRating, setNewRating] = useState(null)
+    const [newRating, setNewRating] = useState(rating)
     const [hover, setHover] = useState(null)
 
     return (
