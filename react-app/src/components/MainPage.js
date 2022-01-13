@@ -39,7 +39,7 @@ const MainPage = () => {
                 <Link to={`/products/${product.id}`}>
                   <img src={product?.imageUrl} className="img" />
                 </Link>
-                <div className="product-price">${product.price}</div>
+                <div className="product-price">${product.price.toFixed(2)}</div>
                 {sessionUser?.id === product?.userId && (
                   <div>
                     {/* <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} /> */}
