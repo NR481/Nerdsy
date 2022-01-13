@@ -1,0 +1,17 @@
+.subnav-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 50px;
+  background-color: #3724CE;
+  color:  #E2E3E5;
+  font-family: 'Audiowide', cursive;
+}
+
+.subnav-button {
+  border: none;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: 16px;
+}

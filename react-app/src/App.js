@@ -12,6 +12,7 @@ import MainPage from './components/MainPage'
 import ProductDetail from './components/ProductDetail';
 import { authenticate } from './store/session';
 import SearchPage from './components/SearchPage';
+import SubNavBar from './components/SubNavBar';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -31,6 +32,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <SubNavBar />
       <Switch>
         <Route path='/' exact={true}>
           <MainPage />

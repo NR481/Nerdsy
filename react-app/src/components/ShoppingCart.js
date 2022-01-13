@@ -41,15 +41,15 @@ const ShoppingCart = () => {
           // <span key={item?.id}>
           //   <h2>{product?.name}</h2>
           //   <img src={product?.imageUrl} />
-          //   <button
-          //     type="button"
-          //     onClick={(e) => {
-          //       e.preventDefault();
-          //       handleDelete(product);
-          //     }}
-          //   >
-          //     Remove From Cart
-          //   </button>
+            // <button
+            //   type="button"
+            //   onClick={(e) => {
+            //     e.preventDefault();
+            //     handleDelete(product);
+            //   }}
+            // >
+            //   Remove From Cart
+            // </button>
           //   <div>
           //     <button onClick={(e) => {
           //       setQuantity(quantity + 1)

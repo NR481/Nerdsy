@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { updateShoppingCart } from "../store/shoppingCart"
+import { removeFromCart } from "../store/shoppingCart"
 
 const CartItem = ({ item, cart, product }) => {
   const [quantity, setQuantity] = useState(1)
@@ -8,7 +9,12 @@ const CartItem = ({ item, cart, product }) => {
 
   useEffect(() => {
     dispatch(updateShoppingCart(item?.id, quantity, cart?.id))
-  })
+  }, [dispatch, item?.id, quantity, cart?.id])
+
+  const handleDelete = async () => {
+    await dispatch(removeFromCart(product, cart?.id))
+    return
+  }
 
   return (
     <div>
@@ -26,6 +32,15 @@ const CartItem = ({ item, cart, product }) => {
       >
         -
       </button>
+      <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                handleDelete(product);
+              }}
+            >
+              Remove From Cart
+            </button>
       <p>{product?.price * item?.quantity}</p>
     </div>
   )
