@@ -23,7 +23,7 @@ const SearchPage = () => {
           results.map(result => (
             <div>
               <h2>{result.name}</h2>
-              <Link to={`/products/${result.id}`}><img src={result.imageUrl} /></Link>
+              <Link to={`/products/${result.id}`}><img src={result.imageUrl} className="search-img"/></Link>
             </div>
           ))
         }

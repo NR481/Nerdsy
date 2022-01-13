@@ -20,7 +20,7 @@ const searchReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
     case GET_QUERY:
-      newState = { ...state }
+      newState = {}
       action.query.products.forEach(item => {
         newState[item.id] = item
       })
