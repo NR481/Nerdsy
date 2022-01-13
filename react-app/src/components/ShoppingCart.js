@@ -24,45 +24,86 @@ const ShoppingCart = () => {
     return dispatch(removeFromCart(product, cart?.id))
   }
 
-  const updateQuantity = (item, quantity=1) => {
+  const updateQuantity = (item, quantity) => {
     return dispatch(updateShoppingCart(item?.id, quantity, cart?.id))
   }
   
   return (
     <div className="innerModal">
-      <h1>Shopping Cart</h1>
+      <div className="shopping-cart-title">
+      <h1 id="shopping-cart-title">Shopping Cart</h1>
+      </div>
+      <div>
+        <h3>ITEMS ({ cartItems?.length })</h3>
+      </div>
       {cartItems?.map(item => {
         const id = item.productId 
         const product = productObj[id]
         return (
-          <span key={item?.id}>
-            <h2>{product?.name}</h2>
-            <img src={product?.imageUrl} />
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                handleDelete(product);
-              }}
-            >
-              Remove From Cart
-            </button>
-            <div>
-              <button onClick={(e) => {
-                setQuantity(quantity + 1)
-                updateQuantity(item, quantity);
-              }}>+</button>
-              <h3>Quantity: {item?.quantity}</h3>
-              <button onClick={(e) => {
-                setQuantity(quantity - 1)
-                updateQuantity(item, quantity);
-              }}>-</button>
+          <span className="item-span" key={item?.id}>
+            <div className="item-image-div">
+              <img id="item-image" src={product?.imageUrl} />
             </div>
-            <h3>{product?.price * item?.quantity}</h3>
+            <div className="item-content">
+              <div className="item-details">
+                <h2>{product?.name}</h2>
+                <p className="item-p">{product?.franchise}</p>
+                <p className="item-p">{product?.category}</p>
+                <p className="item-p">{product?.description}</p>
+              </div>
+              <div className="item-changes">
+                <div className="remove-btn-div">
+                  <button
+                    className="remove-button"
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleDelete(product);
+                    }}
+                  >
+                    <i className="far fa-trash-alt"></i>
+                  </button>
+                </div>
+                <div className="item-price">
+                  <div className="price-element">
+                    <p className="item-p">$ {product?.price}</p>
+                  </div>
+                  <div className="price-element">
+                    <p className="item-p">x</p>
+                  </div>
+                  <div className="price-element">
+                    <p className="item-p">Quantity:</p>
+                  </div>
+                  <div className="quantity-modifier">
+                    <i
+                      className="fas fa-angle-up"
+                      onClick={(e) => {
+                        setQuantity(quantity + 1);
+                        updateQuantity(item, quantity);
+                      }}
+                    ></i>
+                    <p className="item-p">{item?.quantity}</p>
+                    <i
+                      className="fas fa-angle-down"
+                      onClick={(e) => {
+                        setQuantity(quantity - 1);
+                        if(quantity < 0) setQuantity(0)
+                        updateQuantity(item, quantity);
+                      }}
+                    ></i>
+                  </div>
+                  <div className="price-element">
+                    <p className="item-p">$ {product?.price * item?.quantity}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </span>
         );
       })}
+      <div className="cart-total">
       <h2>{cart?.total}</h2>
+      </div>
     </div>
   )
 };
