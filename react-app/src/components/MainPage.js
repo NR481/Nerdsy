@@ -44,7 +44,7 @@ const MainPage = () => {
                 <div>{product.price}</div>
                 {sessionUser?.id === product?.userId && (
                   <div>
-                    <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} />
+                    {/* <EditProductModal id={product.id} editName={product.name} editPrice={product.price} editDescription={product.description} editImageUrl={product.imageUrl} editRating={product.rating} editCategory={product.category} editFranchise={product.franchise} /> */}
                     {/* <DeleteProduct id={product?.id} /> */}
                   </div>
                 )}

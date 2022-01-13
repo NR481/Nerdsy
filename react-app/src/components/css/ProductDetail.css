@@ -30,6 +30,7 @@
   grid-column: 2 / span 1;
   grid-row: 3 / span 1;
   padding-top: 25px;
+  font-size: 25px;
 }
 
 .product-quantity {
@@ -52,4 +53,9 @@
 .product-edit {
   position: fixed;
   top: 570px;
+  left: 250px;
+  height: 40px;
+  width: 336px;
+  border-radius: 15px;
+  border: 1px solid gray;
 }
