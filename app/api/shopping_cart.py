@@ -38,7 +38,6 @@ def shopping_cart(user_id):
 @cart_routes.route('/<int:user_id>/<int:product_id>', methods=['POST'])
 def add_Item(user_id, product_id):
   data = request.json
-  print("!!!!!!!!!! DATA!!!!!!!!!", data)
   cart = ShoppingCart.query.filter(ShoppingCart.userId == user_id).first()
   product = Product.query.filter(Product.id == product_id).first()
   

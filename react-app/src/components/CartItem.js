@@ -4,7 +4,7 @@ import { updateShoppingCart } from "../store/shoppingCart"
 import { removeFromCart } from "../store/shoppingCart"
 
 const CartItem = ({ item, cart, product, handleDelete }) => {
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(item.quantity)
   const dispatch = useDispatch()
 
   useEffect(() => {
