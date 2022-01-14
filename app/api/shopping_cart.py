@@ -17,9 +17,8 @@ def shopping_cart(user_id):
     db.session.add(cart)
     db.session.commit()
   
-  cart = cart.to_dict()
   
-  cartItems = CartItem.query.filter(CartItem.cartId == cart['id']).all()
+  cartItems = CartItem.query.filter(CartItem.cartId == cart.id).all()
   cartItems = [item.to_dict() for item in cartItems]
 
   newTotal = 0
@@ -28,7 +27,8 @@ def shopping_cart(user_id):
     product = product.to_dict()
     newTotal = newTotal + (product['price'] * item['quantity'])
   
-  cart['total'] = newTotal
+  cart.total = newTotal
+  cart = cart.to_dict()
   return {
     'cart': cart,
     'cartItems': cartItems
@@ -59,10 +59,9 @@ def add_Item(user_id, product_id):
   db.session.add(newCartItem)
   db.session.commit()
 
-  cart = cart.to_dict()
   newItem = newCartItem.to_dict()
 
-  cartItems = CartItem.query.filter(CartItem.cartId == cart['id']).all()
+  cartItems = CartItem.query.filter(CartItem.cartId == cart.id).all()
 
   newTotal = 0
 
@@ -72,7 +71,9 @@ def add_Item(user_id, product_id):
     product = product.to_dict()
     newTotal = newTotal + (product['price'] * item['quantity'])
   
-  cart['total'] = newTotal
+  cart.total = newTotal
+  db.session.commit()
+  cart = cart.to_dict()
   
   return {
     'cart': cart,
@@ -95,7 +96,7 @@ def update_cart():
 
   db.session.commit()
 
-  items = CartItem.query.filter(CartItem.cartId == cart_id).all()
+  items = CartItem.query.filter(CartItem.cartId == cart_id).order_by(CartItem.productId).all()
   cartItems = [item.to_dict() for item in items]
   
   newTotal = 0
@@ -103,8 +104,9 @@ def update_cart():
     product = Product.query.get(item['productId'])
     product = product.to_dict()
     newTotal = newTotal + (product['price'] * item['quantity'])
+  cart.total = newTotal
+  db.session.commit()
   cart = cart.to_dict()
-  cart['total'] = newTotal
   
   return {
     'cart': cart,
@@ -132,8 +134,9 @@ def delete_item(product_id, cart_id):
     product = Product.query.get(item['productId'])
     product = product.to_dict()
     newTotal = newTotal + (product['price'] * item['quantity'])
+  cart.total = newTotal
+  db.session.commit()
   cart = cart.to_dict()
-  cart['total'] = newTotal
   
   return {
     'cart': cart,

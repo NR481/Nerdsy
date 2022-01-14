@@ -12,7 +12,6 @@ const ShoppingCart = () => {
   const productObj = useSelector((state) => state.products);
   const cartItems = useSelector(state => state.shoppingCart.cartItems)
   const dispatch = useDispatch()
-  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     dispatch(allProducts());
