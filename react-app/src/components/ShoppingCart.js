@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getShoppingCart, removeFromCart } from "../store/shoppingCart";
 import { allProducts } from "../store/products";
-import { updateShoppingCart } from "../store/shoppingCart";
-import "./css/ShoppingCart.css";
+import { emptyCart } from "../store/shoppingCart";
 import CartItem from "./CartItem";
+import "./css/ShoppingCart.css";
 
 const ShoppingCart = ({ setModal }) => {
   const user = useSelector(state => state.session.user)
@@ -21,6 +21,9 @@ const ShoppingCart = ({ setModal }) => {
 
   }, [dispatch])
 
+  const handlePurchase = (cart) => {
+    return dispatch(emptyCart(cart.id))
+  } 
 
   const handleDelete = (product) => {
     return dispatch(removeFromCart(product, cart?.id))
@@ -52,13 +55,24 @@ const ShoppingCart = ({ setModal }) => {
           <h2> $ {cart?.total}</h2>
         </div>
         <div className="checkout-buttons">
-          <button id="checkout-button" type="button"
+          <button
+            id="checkout-button"
+            type="button"
             onClick={(e) => {
               e.preventDefault()
               setModal(false)
             }}
           >Continue Shopping</button>
-          <button id="checkout-button" type="button">Checkout</button>
+          <button
+            id="checkout-button"
+            type="button"
+            onClick={(e) => {
+              alert("You bought your items!")
+              history.push('/')
+              setModal(false)
+              handlePurchase(cart)
+            }}
+          >Checkout</button>
         </div>
       </div>
     </div>
