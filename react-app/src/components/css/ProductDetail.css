@@ -37,6 +37,8 @@ html {
   grid-row: 1 / span 1;
   align-self: flex-end;
   font-size: 25px;
+  bottom: 20px;
+  top: 100px;
 }
 
 .product-quantity {
@@ -66,4 +68,9 @@ html {
   width: 336px;
   border-radius: 15px;
   border: 1px solid gray;
+}
+
+.productsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 20%);
 }
