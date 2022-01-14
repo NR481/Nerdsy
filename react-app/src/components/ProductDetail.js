@@ -6,6 +6,7 @@ import { addToCart } from "../store/shoppingCart";
 import Comments from "./Comments";
 import EditProductModal from "./editProduct/editProductModal";
 import './css/ProductDetail.css'
+import ShoppingCartModal from "./ShoppingCartModal";
 
 const ProductDetail = () => {
   const history = useHistory()
@@ -45,7 +46,7 @@ const ProductDetail = () => {
                   Would you like to go to your cart now?`
             );
             if (confirmed) {
-              return history.push(`/shopping_cart/${user?.id}`);
+              document.getElementById("shopping-cart-modal-btn").click();
             }
           }}
         >

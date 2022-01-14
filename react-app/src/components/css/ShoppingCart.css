@@ -1,6 +1,6 @@
 .innerModal {
   width: 1000px;
-  height: 500px;
+  height: 700px;
 }
 
 .shopping-cart-title {
@@ -11,6 +11,8 @@
   width: 100%;
   position: sticky;
   background: linear-gradient(to right, #192122, #575856);
+  top: 0px;
+
 }
 
 #shopping-cart-title {

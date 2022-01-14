@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { getShoppingCart, removeFromCart } from "../store/shoppingCart";
 import { allProducts } from "../store/products";
 import { updateShoppingCart } from "../store/shoppingCart";
 import "./css/ShoppingCart.css";
 import CartItem from "./CartItem";
 
-const ShoppingCart = () => {
+const ShoppingCart = ({ setModal }) => {
   const user = useSelector(state => state.session.user)
   const cart = useSelector(state => state.shoppingCart.cart)
   const productObj = useSelector((state) => state.products);
-  const cartItems = useSelector(state => state.shoppingCart.cartItems)
-  const dispatch = useDispatch()
+  const cartItems = useSelector(state => state.shoppingCart.cartItems);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(allProducts());
@@ -50,7 +52,12 @@ const ShoppingCart = () => {
           <h2> $ {cart?.total}</h2>
         </div>
         <div className="checkout-buttons">
-          <button id="checkout-button" type="button">Continue Shopping</button>
+          <button id="checkout-button" type="button"
+            onClick={(e) => {
+              e.preventDefault()
+              setModal(false)
+            }}
+          >Continue Shopping</button>
           <button id="checkout-button" type="button">Checkout</button>
         </div>
       </div>

@@ -7,13 +7,14 @@ const ShoppingCartModal = () => {
 
     return (
         <div>
-            <button onClick={() => setModal(true)}>
+            <button id="shopping-cart-modal-btn"
+                onClick={() => setModal(true)}>
                 <i class="fas fa-shopping-cart"></i>
             </button>
             {modal && (
                 <div>
                     <Modal onClose={() => setModal(false)}>
-                        <ShoppingCart />
+                        <ShoppingCart setModal={setModal} />
                     </Modal>
                 </div>
             )}
