@@ -50,7 +50,6 @@ const LoginForm = ({ setModal }) => {
           <input
             name='email'
             type='text'
-            placeholder='Email'
             value={email}
             onChange={updateEmail}
           />
@@ -60,7 +59,6 @@ const LoginForm = ({ setModal }) => {
           <input
             name='password'
             type='password'
-            placeholder='Password'
             value={password}
             onChange={updatePassword}
             height='20'
