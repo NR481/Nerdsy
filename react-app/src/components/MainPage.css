@@ -6,7 +6,6 @@
     align-items: center;
     width: 100%;
     margin-top: -5px;
-    padding: 20px;
     background-color: #E2E3E5;
 }
 
@@ -15,10 +14,6 @@
     height: 400px;
 }
 
-/* .page-container {
-    position: relative;
-} */
-
 .img {
     width: 300px;
     height: 300px;
@@ -26,14 +21,22 @@
     padding: 10px;
 }
 
-.product-price {
+.prod-listing {
+    position: relative;
+}
+
+.prod-price {
+    position: absolute;
     border: black solid 2px;
     width: 100px;
+    height: 25px;
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 15px;
     background-color: #E2E3E5;
-    bottom: 100px;
+    bottom: 25px;
+    left: 15px;
     margin-left: 10px;
     color: #3724CE
 }
