@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { productComments } from "../store/comments";
 import { allUsers } from "../store/session";
 import { addNewComment } from "../store/comments";
-// import EditCommentButton from "./EditCommentButton";
 import EditCommentModal from "./editCommentModal"
 import './css/Comments.css'
 
@@ -88,22 +87,24 @@ const Comments = ({ product }) => {
                 {signedInUser !== null &&
                     <form onSubmit={handleSubmit} className="add-comment">
                         <textarea
+                            className="add-comment-box"
                             placeholder="Leave a comment..."
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
                             />
-                        <label>Rating: </label>
+                        <label className="rating-label">Rating: </label>
                         <select
+                            className="star-rating"
                             value={rating}
                             onChange={(e) => setRating(e.target.value)}
                             >
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                            <option value='5'>5</option>
+                            <option value='1'>★</option>
+                            <option value='2'>★★</option>
+                            <option value='3'>★★★</option>
+                            <option value='4'>★★★★</option>
+                            <option value='5'>★★★★★</option>
                         </select>
-                        <button>Submit</button>
+                        <button className="submit-comment">Submit</button>
                     </form>
                 }
             </div>
