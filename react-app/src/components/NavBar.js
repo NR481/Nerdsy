@@ -42,10 +42,10 @@ const NavBar = ({ email, password }) => {
             <SignupFormModal />
           </li>
         )}
+        {user && <li className="username"> {user.username} </li>}
         {user && (
           <ShoppingCartModal />
         )}
-        {user && <li className="username"> {user.username} </li>}
         {user && (
           <li>
             <LogoutButton />
