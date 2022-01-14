@@ -14,6 +14,7 @@ import { authenticate } from './store/session';
 import SearchPage from './components/SearchPage';
 import SubNavBar from './components/SubNavBar';
 
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -37,12 +38,12 @@ function App() {
         <Route path='/' exact={true}>
           <MainPage />
         </Route>
-        <Route path='/login' exact={true}>
+        {/* <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
-        </Route>
+        </Route> */}
         <Route path='/products/:id' exact={true}>
           <ProductDetail />
         </Route>
@@ -55,9 +56,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/shopping_cart/:userId' exact={true} >
+        {/* <ProtectedRoute path='/shopping_cart/:userId' exact={true} >
           <ShoppingCart />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         {/* <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute> */}
