@@ -38,12 +38,12 @@ function App() {
         <Route path='/' exact={true}>
           <MainPage />
         </Route>
-        <Route path='/login' exact={true}>
+        {/* <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
-        </Route>
+        </Route> */}
         <Route path='/products/:id' exact={true}>
           <ProductDetail />
         </Route>

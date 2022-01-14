@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './css/Navbar.css'
 import ShoppingCartModal from './ShoppingCartModal';
+import SignupFormModal from './auth/SignupFormModal';
+import LoginFormModal from './auth/LoginFormModal';
 
 const NavBar = ({ email, password }) => {
   const history = useHistory()
@@ -32,31 +34,18 @@ const NavBar = ({ email, password }) => {
 
         {!user && (
           <li>
-            <NavLink
-              to="/login"
-              exact={true}
-              style={{ textDecoration: "none", color: "#E2E3E5" }}
-              activeClassName="active"
-            >
-              Login
-            </NavLink>
+            <LoginFormModal />
           </li>
         )}
         {!user && (
           <li>
-            <NavLink
-              to="/sign-up"
-              exact={true}
-              style={{ textDecoration: "none", color: "#E2E3E5" }}
-            >
-              Sign Up
-            </NavLink>
+            <SignupFormModal />
           </li>
         )}
+        {user && <li className="username"> {user.username} </li>}
         {user && (
           <ShoppingCartModal />
         )}
-        {user && <li className="username"> {user.username} </li>}
         {user && (
           <li>
             <LogoutButton />
