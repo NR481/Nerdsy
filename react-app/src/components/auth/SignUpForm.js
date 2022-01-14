@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
-const SignUpForm = () => {
+const SignUpForm = ({ setModal }) => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [firstName, setFirstName] = useState('')
@@ -22,6 +22,7 @@ const SignUpForm = () => {
         setErrors(data)
       }
     }
+    setModal(false)
   };
 
   const updateFirstName = (e) => {
