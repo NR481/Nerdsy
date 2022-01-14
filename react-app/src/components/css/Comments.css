@@ -65,7 +65,7 @@ button {
     border: black 2px solid;
     border-radius: 10px;
     width: 710px;
-    margin-left: 85px;
+    margin-left: 130px;
     height: 100px;
 }
 
@@ -78,4 +78,17 @@ button {
 
 textarea {
     resize: none;
+    background-color: #E2E3E5;
+}
+
+.submit-comment {
+    font-family: 'Jost', sans-serif;
+}
+
+label {
+    font-family: 'Jost', sans-serif;
+}
+
+.star-rating {
+    color: #3724CE;
 }

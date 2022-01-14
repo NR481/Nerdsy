@@ -1,3 +1,7 @@
+body {
+    font-family: 'Jost', sans-serif;
+}
+
 .productsContainer {
     display: flex;
     justify-content: center;
@@ -8,6 +12,11 @@
     margin-top: -5px;
     padding: 20px;
     background-color: #E2E3E5;
+    font-family: 'Jost', sans-serif;
+}
+
+.product-name {
+    padding-bottom: 5px;
 }
 
 .splash-image {
@@ -32,7 +41,7 @@
     display: flex;
     justify-content: center;
     border-radius: 15px;
-    background-color: #E2E3E5;
+    background-color: #c4c4c4da;
     bottom: 100px;
     margin-left: 10px;
     color: #3724CE
