@@ -8,6 +8,7 @@ const CartItem = ({ item, cart, product, handleDelete }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    console.log("!!!!QUANTITY!!!!", quantity)
     dispatch(updateShoppingCart(item?.id, quantity, cart?.id))
   }, [dispatch, quantity])
 
@@ -30,7 +31,8 @@ const CartItem = ({ item, cart, product, handleDelete }) => {
               type="button"
               onClick={(e) => {
                 e.preventDefault();
-                handleDelete(product);
+                const confirmed = window.confirm(`remove ${product.name} from your cart?`)
+                if(confirmed) handleDelete(product);
               }}
             >
               <i className="far fa-trash-alt"></i>
@@ -50,6 +52,7 @@ const CartItem = ({ item, cart, product, handleDelete }) => {
               <button
                 type="button"
                 onClick={(e) => {
+                  e.preventDefault()
                   setQuantity(quantity + 1);
                 }}
               >
@@ -59,6 +62,7 @@ const CartItem = ({ item, cart, product, handleDelete }) => {
               <button
                 type="button"
                 onClick={(e) => {
+                  e.preventDefault()
                   setQuantity(quantity - 1);
                   if (quantity <= 1) setQuantity(1);
                 }}
