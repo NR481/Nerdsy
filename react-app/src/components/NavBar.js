@@ -33,28 +33,13 @@ const NavBar = ({ email, password }) => {
         </li>
 
         {!user && (
-          <LoginFormModal />
-          // <li>
-          //   <NavLink
-          //     to="/login"
-          //     exact={true}
-          //     style={{ textDecoration: "none", color: "#E2E3E5" }}
-          //     activeClassName="active"
-          //   >
-          //     Login
-          //   </NavLink>
-          // </li>
+          <li>
+            <LoginFormModal />
+          </li>
         )}
         {!user && (
           <li>
             <SignupFormModal />
-            {/* <NavLink
-              to="/sign-up"
-              exact={true}
-              style={{ textDecoration: "none", color: "#E2E3E5" }}
-            >
-              Sign Up
-            </NavLink> */}
           </li>
         )}
         {user && (
