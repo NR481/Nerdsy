@@ -141,3 +141,22 @@ def delete_item(product_id, cart_id):
     'cart': cart,
     'cartItems': cartItems
   }
+
+
+@cart_routes.route("/purchase/<int:cart_id>", methods=["DELETE"])
+def restoreCart(cart_id):
+  cart = ShoppingCart.query.get(cart_id)
+  cartItems = CartItem.query.filter(CartItem.cartId == cart_id).all()
+  
+  for item in cartItems:
+    db.session.delete(item)
+  
+  cart.total = 0
+  db.session.commit()
+  
+  cart = cart.to_dict()
+  
+  return {
+    'cart': cart,
+    'cartItems': [],
+  }

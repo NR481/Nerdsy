@@ -6,6 +6,8 @@ const updateCart = (cartData) => ({
 });
 
 
+
+
 export const getShoppingCart = (userId) => async (dispatch) => {
   const response = await fetch(`/api/shopping_cart/${userId}`);
   const cartData = await response.json();
@@ -43,6 +45,18 @@ export const updateShoppingCart = (itemId, quantity, cartId) => async (dispatch)
   })
 
   const data = await response.json()
+  dispatch(updateCart(data))
+}
+
+export const emptyCart = (cartId) => async (dispatch) => {
+  const response = await fetch(`/api/shopping_cart/purchase/${cartId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    },
+  })
+  const data = response.json()
+
   dispatch(updateCart(data))
 }
 
