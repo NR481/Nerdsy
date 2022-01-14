@@ -1,0 +1,62 @@
+div.user-comment {
+    box-sizing: border-box;
+    width: 40%;
+    border: black solid 2px;
+    background-color: #E2E3E5;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    font-family: 'Jost', sans-serif;
+}
+
+h2 {
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+    padding: 10px;
+}
+
+form {
+    padding: 10px;
+}
+
+.edit-comment-button {
+    border-radius: 15px;
+    margin-top: 10px;
+    font-family: 'Jost', sans-serif;
+}
+
+.product-comment {
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.user-rating {
+    margin-bottom: 2px;
+    color: #3724CE;
+}
+
+p {
+    margin-left: 5px;
+}
+
+label {
+    margin-left: 5px;
+}
+
+.comment-box {
+    width: 1000px;
+    margin-left: 600px;
+}
+
+button {
+    border-radius: 15px;
+    margin-left: 5px;
+}
+
+.whole-comment {
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 500px;
+}
