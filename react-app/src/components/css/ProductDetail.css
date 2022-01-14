@@ -1,8 +1,12 @@
+html {
+  font-family: inherit;
+}
+
 .detail-container {
   position: relative;
   display: grid;
   grid-template-columns:  600px 350px;
-  grid-template-rows: repeat(5,75px);
+  grid-template-rows: repeat(6,75px);
   padding: 80px;
   margin-left: 100px;
   font-family: 'Jost', sans-serif;
@@ -13,6 +17,8 @@
   grid-column: 1 / span 1;
   grid-row: 1 / 4;
   width: 500px;
+  height: 400px;
+  border: black 2px solid;
 }
 
 .product-name {
@@ -28,14 +34,17 @@
 
 .product-price {
   grid-column: 2 / span 1;
-  grid-row: 3 / span 1;
-  padding-top: 25px;
+  grid-row: 1 / span 1;
+  align-self: flex-end;
   font-size: 25px;
+  bottom: 20px;
+  top: 100px;
 }
 
 .product-quantity {
   display: flex;
   flex-direction: column;
+  align-self: flex-end;
   grid-column: 2 / span 1;
   grid-row: 4 / span 1;
 }
@@ -51,11 +60,17 @@
 }
 
 .product-edit {
-  position: fixed;
-  top: 570px;
-  left: 250px;
+  grid-column: 1 / span 1;
+  grid-row: 6 / span 2;
+  align-self: flex-end;
+  margin-left: 70px;
   height: 40px;
   width: 336px;
   border-radius: 15px;
   border: 1px solid gray;
+}
+
+.productsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 20%);
 }

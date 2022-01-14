@@ -31,7 +31,7 @@ const ProductDetail = () => {
         <h1 className="product-name">{product?.name}</h1>
         <img src={product?.imageUrl} alt='product image' className="product-img"/>
         <p className="description">{product?.description}</p>
-        <p className="product-price">{`$${product?.price}`}</p>
+        <p className="product-price">{`$${product?.price.toFixed(2)}`}</p>
         <EditProductModal id={product?.id} editName={product?.name} editPrice={product?.price} editDescription={product?.description} editImageUrl={product?.imageUrl} editRating={product?.rating} editCategory={product?.category} editFranchise={product?.franchise} />
         <button
           className="add-cart"
