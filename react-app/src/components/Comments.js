@@ -61,50 +61,52 @@ const Comments = ({ product }) => {
 
     return (
         <>
-            <h2 className="title-comment">Comments</h2>
-            {productComment?.length > 0 &&
-                productComment?.map(comment => (
-                    <div className="comment-box">
-                        <div className="user-comment">
-                            <p className="from-user">{`🤓 ${users[comment?.userId - 1]?.firstName} ${users[comment?.userId - 1]?.lastName}`}</p>
-                            <p className="user-rating">{comment.rating === 5? "★★★★★" : comment.rating === 4? "★★★★" : comment.rating === 3? "★★★" : comment.rating === 2? "★★" : "★"}</p>
-                            <div className="product-comment">{comment?.comment}
-                            {signedInUser?.id === comment?.userId && (
-                                <EditCommentModal
-                                user={users[comment?.userId-1]}
-                                signedInUser={signedInUser}
-                                comment={comment}
-                                rating={comment?.rating}
-                            />
-                            )}
+            <div className="whole-comment">
+                <h2 className="title-comment">Comments</h2>
+                {productComment?.length > 0 &&
+                    productComment?.map(comment => (
+                        <div className="comment-box">
+                            <div className="user-comment">
+                                <p className="from-user">{`🤓 ${users[comment?.userId - 1]?.firstName} ${users[comment?.userId - 1]?.lastName}`}</p>
+                                <p className="user-rating">{comment.rating === 5? "★★★★★" : comment.rating === 4? "★★★★" : comment.rating === 3? "★★★" : comment.rating === 2? "★★" : "★"}</p>
+                                <div className="product-comment">{comment?.comment}
+                                {signedInUser?.id === comment?.userId && (
+                                    <EditCommentModal
+                                    user={users[comment?.userId-1]}
+                                    signedInUser={signedInUser}
+                                    comment={comment}
+                                    rating={comment?.rating}
+                                />
+                                )}
 
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-                ))
-            }
-            {signedInUser !== null &&
-                <form onSubmit={handleSubmit}>
-                    <textarea
-                        placeholder="Leave a comment..."
-                        value={comment}
-                        onChange={(e) => setComment(e.target.value)}
-                    />
-                    <label>Rating: </label>
-                    <select
-                        value={rating}
-                        onChange={(e) => setRating(e.target.value)}
-                    >
-                        <option value='1'>1</option>
-                        <option value='2'>2</option>
-                        <option value='3'>3</option>
-                        <option value='4'>4</option>
-                        <option value='5'>5</option>
-                    </select>
-                    <button>Submit</button>
-                </form>
-            }
+                        </div>
+                    ))
+                }
+                {signedInUser !== null &&
+                    <form onSubmit={handleSubmit}>
+                        <textarea
+                            placeholder="Leave a comment..."
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)}
+                            />
+                        <label>Rating: </label>
+                        <select
+                            value={rating}
+                            onChange={(e) => setRating(e.target.value)}
+                            >
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                        </select>
+                        <button>Submit</button>
+                    </form>
+                }
+            </div>
         </>
     )
 
