@@ -86,7 +86,7 @@ const Comments = ({ product }) => {
                     ))
                 }
                 {signedInUser !== null &&
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className="add-comment">
                         <textarea
                             placeholder="Leave a comment..."
                             value={comment}
