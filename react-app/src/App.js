@@ -7,12 +7,13 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
-import ShoppingCart from './components/ShoppingCart';
+// import ShoppingCart from './components/ShoppingCart';
 import MainPage from './components/MainPage'
 import ProductDetail from './components/ProductDetail';
 import { authenticate } from './store/session';
 import SearchPage from './components/SearchPage';
 import SubNavBar from './components/SubNavBar';
+import ShoppingCartModal from './components/ShoppingCartModal';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -56,7 +57,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/shopping_cart/:userId' exact={true} >
-          <ShoppingCart />
+          <ShoppingCartModal />
         </ProtectedRoute>
         {/* <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>

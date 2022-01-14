@@ -29,7 +29,7 @@ const ShoppingCart = () => {
       <div className="shopping-cart-title">
         <h1 id="shopping-cart-title">Shopping Cart</h1>
       </div>
-      <div>
+      <div className="items-amount">
         <h3>ITEMS ({cartItems?.length})</h3>
       </div>
       {cartItems?.map((item) => {
@@ -44,9 +44,15 @@ const ShoppingCart = () => {
           />
         );
       })}
-      <div className="cart-total">
-        <h2>Total:</h2>
-        <h2> $ {cart?.total}</h2>
+      <div className="checkout">
+        <div className="cart-total">
+          <h2>Total:</h2>
+          <h2> $ {cart?.total}</h2>
+        </div>
+        <div className="checkout-buttons">
+          <button id="checkout-button" type="button">Continue Shopping</button>
+          <button id="checkout-button" type="button">Checkout</button>
+        </div>
       </div>
     </div>
   );
