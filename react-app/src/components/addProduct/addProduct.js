@@ -101,7 +101,7 @@ const AddProduct = ({ showModal }) => {
                     />
                 </div>
                 <button className="prod-button">
-                    submit
+                    Submit
                 </button>
             </form>
         </div>
