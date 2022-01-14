@@ -11,6 +11,7 @@ html {
   margin-left: 100px;
   font-family: 'Jost', sans-serif;
   line-height: 20px;
+  justify-content: center;
 }
 
 .product-img {
@@ -36,7 +37,9 @@ html {
   grid-column: 2 / span 1;
   grid-row: 1 / span 1;
   align-self: flex-end;
+  align-items:flex-end;
   font-size: 25px;
+  height: 25px;
   bottom: 20px;
   top: 100px;
 }

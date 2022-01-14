@@ -9,10 +9,11 @@ div.user-comment {
     font-family: 'Jost', sans-serif;
 }
 
-h2 {
+.title-comment {
     font-family: 'Jost', sans-serif;
-    font-size: 20px;
+    font-size: 30px;
     padding: 10px;
+    font-weight: bold;
 }
 
 form {
@@ -44,8 +45,8 @@ label {
 }
 
 .comment-box {
-    width: 1000px;
-    margin-left: 600px;
+    width: 1800px;
+    padding-left:1000px;
 }
 
 button {
@@ -54,9 +55,23 @@ button {
 }
 
 .whole-comment {
-    position:absolute;
+    position:relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 500px;
+}
+
+.add-comment-box {
+    border: black 2px solid;
+    border-radius: 10px;
+    width: 710px;
+    margin-left: 85px;
+    height: 100px;
+}
+
+::placeholder {
+    justify-content: flex-end;
+    align-items: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 1.5em;
 }

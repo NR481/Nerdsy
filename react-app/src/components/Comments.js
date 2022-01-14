@@ -88,6 +88,7 @@ const Comments = ({ product }) => {
                 {signedInUser !== null &&
                     <form onSubmit={handleSubmit} className="add-comment">
                         <textarea
+                            className="add-comment-box"
                             placeholder="Leave a comment..."
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
