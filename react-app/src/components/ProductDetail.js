@@ -33,7 +33,9 @@ const ProductDetail = () => {
         <img src={product?.imageUrl} alt='product image' className="product-img"/>
         <p className="description">{product?.description}</p>
         <p className="product-price">{`$${product?.price.toFixed(2)}`}</p>
-        <EditProductModal id={product?.id} editName={product?.name} editPrice={product?.price} editDescription={product?.description} editImageUrl={product?.imageUrl} editRating={product?.rating} editCategory={product?.category} editFranchise={product?.franchise} />
+        {user?.id === product?.userId &&
+          <EditProductModal id={product?.id} editName={product?.name} editPrice={product?.price} editDescription={product?.description} editImageUrl={product?.imageUrl} editRating={product?.rating} editCategory={product?.category} editFranchise={product?.franchise} />
+        }
         <button
           className="add-cart"
           type="button"
