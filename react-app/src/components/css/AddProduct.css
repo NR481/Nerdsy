@@ -1,0 +1,32 @@
+.prod-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+  font-family: 'Audiowide', cursive;
+  background-color:#E2E3E5;
+  border-radius: 10px;
+  color: #3724CE;
+}
+
+.text {
+  margin: 10px;
+  width: 300px;
+}
+
+.prod-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.prod-button {
+  background-color: #3724CE;
+  border: none;
+  color:#E2E3E5;
+  font-family: inherit;
+  height: 30px;
+  width: 300px;
+  margin: 15px;
+}

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-
 import { addProduct } from "../../store/products";
+import '../css/AddProduct.css'
 
-const AddProduct = ({showModal}) => {
+
+const AddProduct = ({ showModal }) => {
     const dispatch = useDispatch()
     const userId = useSelector(state => state.session.user)
 
@@ -16,7 +17,7 @@ const AddProduct = ({showModal}) => {
     const [category, setCategory] = useState('')
     const [franchise, setFranchise] = useState('')
 
-    const onSubmit = async(e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
 
         const newProduct = {
@@ -37,70 +38,69 @@ const AddProduct = ({showModal}) => {
 
     return (
         <div>
-            <form onSubmit={onSubmit}>
-                <input 
-                 placeholder="name"
-                 className="text"
-                 type="text"
-                 value={name}
-                 onChange={e => setName(e.target.value)}
-                 required
-                />
+            <form
+                onSubmit={onSubmit}
+                className="prod-form-container"
+            >
+                <div className="prod-field">
+                    <label>Product Name</label>
+                    <input
+                        className="text"
+                        type="text"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="prod-field">
+                    <label>Price</label>
+                    <input
+                        className="text"
+                        type="text"
+                        value={price}
+                        onChange={e => setPrice(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="prod-field">
+                    <label>Description</label>
+                    <textarea
+                        className="text"
+                        type="text"
+                        value={description}
+                        onChange={e => setDescription(e.target.value)}
 
-                <input 
-                 placeholder="price"
-                 className="text"
-                 type="text"
-                 value={price}
-                 onChange={e => setPrice(e.target.value)}
-                 required
-                />
-
-                <textarea 
-                 placeholder="description"
-                 className="text"
-                 type="text"
-                 value={description}
-                 onChange={e => setDescription(e.target.value)}
-                 
-                />
-
-                <input 
-                 placeholder="image url"
-                 className="text"
-                 type="text"
-                 value={imageUrl}
-                 onChange={e => setImageUrl(e.target.value)}
-                 required
-                />
-
-                <input 
-                 placeholder="rating"
-                 className="text"
-                 type="text"
-                 value={rating}
-                 onChange={e => setRating(e.target.value)}
-                 
-                />
-
-                <input 
-                 placeholder="category"
-                 className="text"
-                 type="text"
-                 value={category}
-                 onChange={e => setCategory(e.target.value)}
-                 
-                />
-
-                <input 
-                 placeholder="franchise"
-                 className="text"
-                 type="text"
-                 value={franchise}
-                 onChange={e => setFranchise(e.target.value)}
-                 
-                />
-                <button>
+                    />
+                </div>
+                <div className="prod-field">
+                    <label>Image URL</label>
+                    <input
+                        className="text"
+                        type="text"
+                        value={imageUrl}
+                        onChange={e => setImageUrl(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="prod-field">
+                    <label>Category</label>
+                    <input
+                        type="text"
+                        className="text"
+                        value={category}
+                        onChange={e => setCategory(e.target.value)}
+                    />
+                </div>
+                <div className="prod-field">
+                    <label>Franchise</label>
+                    <input
+                        className="text"
+                        type="text"
+                        value={franchise}
+                        onChange={e => setFranchise(e.target.value)}
+                    />
+                </div>
+                <button className="prod-button">
                     submit
                 </button>
             </form>
