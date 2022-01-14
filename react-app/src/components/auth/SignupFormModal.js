@@ -16,7 +16,7 @@ const SignupFormModal = () => {
       </button>
       {modal && (
         <Modal onClose={() => setModal(false)}>
-          <SignUpForm showModal={setModal} />
+          <SignUpForm setModal={setModal} />
         </Modal>
       )}
     </div>

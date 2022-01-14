@@ -18,11 +18,11 @@ const SignUpForm = ({ setModal }) => {
     e.preventDefault();
     if (password === repeatPassword) {
       const data = await dispatch(signUp(firstName, lastName,username, email, password));
+      setModal(false)
       if (data) {
         setErrors(data)
       }
     }
-    setModal(false)
   };
 
   const updateFirstName = (e) => {
