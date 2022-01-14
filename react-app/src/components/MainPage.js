@@ -31,7 +31,7 @@ const MainPage = () => {
         alt="city skyline"
       />
       <div>
-        <div className="productsContainer">
+        <div className="products-container">
           {products?.length > 0 &&
             products.map((product) => (
               <div key={product.id} className="prod-listing">

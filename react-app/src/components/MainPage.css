@@ -1,12 +1,12 @@
-.productsContainer {
+.products-container {
+    box-sizing: border-box;
     display: flex;
-    justify-content: center;
-    flex-direction: row-reverse;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    align-items: center;
     width: 100%;
     margin-top: -5px;
     background-color: #E2E3E5;
+    padding: 30px;
 }
 
 .splash-image {
@@ -19,6 +19,7 @@
     height: 300px;
     margin: auto;
     padding: 10px;
+    border-radius: 20px;
 }
 
 .prod-listing {
