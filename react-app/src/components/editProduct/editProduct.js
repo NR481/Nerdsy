@@ -35,7 +35,7 @@ const EditProduct = ({id, showModal, editName, editPrice, editDescription, editI
     return (
     <div >
         <form onSubmit={onSubmit} className="edit-form-container">
-            <label>Name</label>
+            <p>Name</p>
             <input
              className="text"
              type="text"
