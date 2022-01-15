@@ -30,38 +30,42 @@ const ProductDetail = () => {
     <div>
       <div className="detail-container">
         <h1 className="product-name">{product?.name}</h1>
-        <img src={product?.imageUrl} alt='product image' className="product-img"/>
+        <img src={product?.imageUrl} alt='product image' className="product-img" />
         <p className="description">{product?.description}</p>
         <p className="product-price">{`$${product?.price.toFixed(2)}`}</p>
         {user?.id === product?.userId &&
           <EditProductModal id={product?.id} editName={product?.name} editPrice={product?.price} editDescription={product?.description} editImageUrl={product?.imageUrl} editRating={product?.rating} editCategory={product?.category} editFranchise={product?.franchise} />
         }
-        <button
-          className="add-cart"
-          type="button"
-          value={product}
-          onClick={(e) => {
-            e.preventDefault();
-            handleAddToCart(product.id);
-            const confirmed = window.confirm(
-              `Added ${product.name} to your cart!
+        {user?.id &&
+          <>
+            <button
+              className="add-cart"
+              type="button"
+              value={product}
+              onClick={(e) => {
+                e.preventDefault();
+                handleAddToCart(product.id);
+                const confirmed = window.confirm(
+                  `Added ${product.name} to your cart!
                   Would you like to go to your cart now?`
-            );
-            if (confirmed) {
-              document.getElementById("shopping-cart-modal-btn").click();
-            }
-          }}
-        >
-          Add to Cart
-        </button>
-        <label className="product-quantity">
-          Quantity
-          <input
-            type="text"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          />
-        </label>
+                );
+                if (confirmed) {
+                  document.getElementById("shopping-cart-modal-btn").click();
+                }
+              }}
+            >
+              Add to Cart
+            </button>
+            <label className="product-quantity">
+              Quantity
+              <input
+                type="text"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+              />
+            </label>
+          </>
+        }
       </div>
       <Comments product={product} />
     </div>

@@ -18,8 +18,9 @@ const DeleteProduct = ({id}) => {
             <button
             onClick={() => onSubmit(id)}
             id={id}
+            className="prod-edit-button"
             >
-                delete
+                Delete
             </button>
         </div>
 
