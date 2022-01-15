@@ -31,24 +31,26 @@ const ShoppingCart = ({ setModal }) => {
 
   return (
     <div className="innerModal">
-      <div className="shopping-cart-title">
-        <h1 id="shopping-cart-title">Shopping Cart</h1>
+      <div className="shopping-cart">
+        <div className="shopping-cart-title">
+          <h1 id="shopping-cart-title">Shopping Cart</h1>
+        </div>
+        <div className="items-amount">
+          <h3>ITEMS ({cartItems?.length})</h3>
+        </div>
+        {cartItems?.map((item) => {
+          const id = item.productId;
+          const product = productObj[id];
+          return (
+            <CartItem
+              item={item}
+              cart={cart}
+              product={product}
+              handleDelete={handleDelete}
+            />
+          );
+        })}
       </div>
-      <div className="items-amount">
-        <h3>ITEMS ({cartItems?.length})</h3>
-      </div>
-      {cartItems?.map((item) => {
-        const id = item.productId;
-        const product = productObj[id];
-        return (
-          <CartItem
-            item={item}
-            cart={cart}
-            product={product}
-            handleDelete={handleDelete}
-          />
-        );
-      })}
       <div className="checkout">
         <div className="cart-total">
           <h2>Total:</h2>

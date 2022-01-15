@@ -1,7 +1,16 @@
 .innerModal {
   width: 1000px;
   height: 700px;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.shopping-cart{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
 
 .shopping-cart-title {
   height: 50px; 
