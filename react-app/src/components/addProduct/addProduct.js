@@ -25,7 +25,7 @@ const AddProduct = ({ showModal }) => {
             price,
             description,
             imageUrl,
-            rating,
+            // rating,
             category,
             franchise,
             userId: userId.id

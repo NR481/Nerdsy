@@ -24,7 +24,7 @@ const EditProduct = ({id, showModal, editName, editPrice, editDescription, editI
             price,
             description,
             imageUrl,
-            rating,
+            // rating,
             category,
             franchise
         }
