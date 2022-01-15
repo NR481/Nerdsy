@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { editProduct } from "../../store/products";
 import DeleteProduct from "../DeleteProductButton";
+import '../css/EditProduct.css'
 
 const EditProduct = ({id, showModal, editName, editPrice, editDescription, editImageUrl, editRating, editCategory, editFranchise}) => {
     const dispatch = useDispatch()
@@ -32,69 +33,61 @@ const EditProduct = ({id, showModal, editName, editPrice, editDescription, editI
     }
 
     return (
-    <div>
-        <form onSubmit={onSubmit}>
-            <p>name</p>
-            <input 
+    <div >
+        <form onSubmit={onSubmit} className="edit-form-container">
+            <label>Name</label>
+            <input
              className="text"
              type="text"
              value={name}
              onChange={e => setName(e.target.value)}
              required
             />
-            <p>price</p>
-            <input 
+            <p>Price</p>
+            <input
              className="text"
              type="text"
              value={price}
              onChange={e => setPrice(e.target.value)}
              required
             />
-            <p>description</p>
-            <textarea 
+            <p>Description</p>
+            <textarea
              className="text"
              type="text"
              value={description}
              onChange={e => setDescription(e.target.value)}
-             
+
             />
-            <p>image.jpg</p>
-            <input 
+            <p>Image URL</p>
+            <input
              className="text"
              type="text"
              value={imageUrl}
              onChange={e => setImageUrl(e.target.value)}
              required
             />
-            <p>rating</p>
-            <input 
-             className="text"
-             type="text"
-             value={rating}
-             onChange={e => setRating(e.target.value)}
-             
-            />
-            <p>category</p>
-            <input 
+            <p>Category</p>
+            <input
              className="text"
              type="text"
              value={category}
              onChange={e => setCategory(e.target.value)}
-             
+
             />
-            <p>franchise</p>
-            <input 
+            <p>Franchise</p>
+            <input
              className="text"
              type="text"
              value={franchise}
              onChange={e => setFranchise(e.target.value)}
-             
+
             />
-            <button>
-                submit
+            <button className="prod-edit-button">
+                Submit
             </button>
+            <DeleteProduct id={id}/>
         </form>
-        <DeleteProduct id={id}/>
     </div>
     )
 }
