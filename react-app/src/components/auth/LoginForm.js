@@ -13,11 +13,16 @@ const LoginForm = ({ setModal }) => {
 
   const onLogin = async (e) => {
     e.preventDefault();
+
+    const validationErrors = [];
+    const regex = /^\S+@\S+\.\S+$/;
     const data = await dispatch(login(email, password));
-    if (data) {
-      setErrors(data);
-    }
-    setModal(false)
+    if (data) validationErrors.push('Credentials are invalid')
+    if (!regex.test(email)) validationErrors.push('Please enter a valid email')
+    if (password.length === 0) validationErrors.push('Please enter your password')
+    setErrors(validationErrors)
+
+    if (!data) setModal(false)
   };
 
   const updateEmail = (e) => {

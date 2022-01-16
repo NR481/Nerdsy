@@ -16,7 +16,7 @@ const AddProductModal = () => {
             </button>
             {modal && (
                 <Modal onClose={() => setModal(false)}>
-                    <AddProduct showModal={setModal}/>
+                    <AddProduct showModal={setModal} />
                 </Modal>
             )}
         </div>
