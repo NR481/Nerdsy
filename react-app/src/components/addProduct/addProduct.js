@@ -16,28 +16,43 @@ const AddProduct = ({ showModal }) => {
     const [rating, setRating] = useState('')
     const [category, setCategory] = useState('')
     const [franchise, setFranchise] = useState('')
+    const [errors, setErrors] = useState([])
 
     const onSubmit = async (e) => {
         e.preventDefault()
 
-        const newProduct = {
-            name,
-            price,
-            description,
-            imageUrl,
-            // rating,
-            category,
-            franchise,
-            userId: userId.id
-        }
-        // console.log(newProduct)
+        const validationErrors = []
+        const regex = /^[0-9]+(\.[0-9][0-9])?$/;
+        if (name.length < 5) validationErrors.push('Please enter a name for your product of at least 5 characters')
+        if (!regex.test(price)) validationErrors.push('Please enter a numeric dollar amount')
+        if (imageUrl.length < 5) validationErrors.push('Please enter an image URL for your product')
+        setErrors(validationErrors)
 
-        await dispatch(addProduct(newProduct))
-        showModal(false)
+        if (validationErrors.length === 0) {
+            const newProduct = {
+                name,
+                price,
+                description,
+                imageUrl,
+                // rating,
+                category,
+                franchise,
+                userId: userId.id
+            }
+            await dispatch(addProduct(newProduct))
+            showModal(false)
+        }
     }
 
     return (
-        <div>
+        <div className="modal-container">
+            <ul className="add-prod-errors">
+                {errors.length > 0 &&
+                    errors.map(error => (
+                        <li key={error}>{error}</li>
+                    ))
+                }
+            </ul>
             <form
                 onSubmit={onSubmit}
                 className="prod-form-container"

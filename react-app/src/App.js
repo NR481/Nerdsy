@@ -33,7 +33,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <SubNavBar />
+      {/* <SubNavBar /> */}
       <Switch>
         <Route path='/' exact={true}>
           <MainPage />

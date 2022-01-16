@@ -1,11 +1,15 @@
 import AddProductModal from "./addProduct/addProductModal";
 import './css/SubNavBar.css'
 
-const SubNavBar = () => {
+const SubNavBar = ({ user }) => {
   return (
-    <ul className="subnav-container">
-      <AddProductModal />
-    </ul>
+    <>
+      {user &&
+        <ul className="subnav-container">
+          <AddProductModal />
+        </ul>
+      }
+    </>
   )
 }
 

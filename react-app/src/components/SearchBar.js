@@ -25,7 +25,7 @@ const SearchBar = () => {
         onChange={(e) => setInput(e.target.value)}
         className="search-field"
       />
-      <button className="search-button"><i class="fas fa-search"></i></button>
+      <button className="search-button"><i className="fas fa-search"></i></button>
     </form>
   )
 }
