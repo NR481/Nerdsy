@@ -17,12 +17,18 @@ const SignUpForm = ({ setModal }) => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+
+    const validationErrors = []
     if (password === repeatPassword) {
       const data = await dispatch(signUp(firstName, lastName, username, email, password));
-      setModal(false)
+
       if (data) {
-        setErrors(data)
+        data.forEach(item => {
+          const message = item.split(' : ')[1]
+          validationErrors.push(message)
+        })
       }
+      setErrors(validationErrors)
     }
   };
 

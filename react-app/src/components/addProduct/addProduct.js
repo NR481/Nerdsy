@@ -23,9 +23,10 @@ const AddProduct = ({ showModal }) => {
 
         const validationErrors = []
         const regex = /^[0-9]+(\.[0-9][0-9])?$/;
+        const imgRegex = /(http(s?):)|([/|.|\w|\s])*\.(?:jpg|gif|png)/;
         if (name.length < 5) validationErrors.push('Please enter a name for your product of at least 5 characters')
         if (!regex.test(price)) validationErrors.push('Please enter a numeric dollar amount')
-        if (imageUrl.length < 5) validationErrors.push('Please enter an image URL for your product')
+        if (!imgRegex.test(imageUrl)) validationErrors.push('Please enter a valid image URL for your product')
         setErrors(validationErrors)
 
         if (validationErrors.length === 0) {
