@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -19,7 +19,13 @@ const SignUpForm = ({ setModal }) => {
     e.preventDefault();
 
     const validationErrors = []
-    if (password === repeatPassword) {
+    const regex = /^\S+@\S+\.\S+$/;
+    if (!regex.test(email)) validationErrors.push('Please enter a valid email')
+    if (password !== repeatPassword) validationErrors.push('Password and Repeat Password inputs must match')
+    if (firstName.length < 1) validationErrors.push('Please enter your First Name')
+    if (lastName.length < 1) validationErrors.push('Please enter your Last Name')
+    if (username.length < 1) validationErrors.push('Please enter a User Name')
+    if (validationErrors.length === 0) {
       const data = await dispatch(signUp(firstName, lastName, username, email, password));
 
       if (data) {
@@ -28,8 +34,8 @@ const SignUpForm = ({ setModal }) => {
           validationErrors.push(message)
         })
       }
-      setErrors(validationErrors)
     }
+    setErrors(validationErrors)
   };
 
   const updateFirstName = (e) => {
@@ -124,7 +130,7 @@ const SignUpForm = ({ setModal }) => {
           ></input>
         </div>
         <button
-          disabled={password !== repeatPassword}
+          // disabled={password !== repeatPassword}
           className='signup-button'
         >
           Sign Up
