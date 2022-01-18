@@ -21,8 +21,8 @@ const SearchPage = () => {
       <div className="results-container">
         {results?.length > 0 &&
           results.map(result => (
-            <div>
-              <h2>{result.name}</h2>
+            <div className="search-listing">
+              <h2 className="search-prod-title">{result.name}</h2>
               <Link to={`/products/${result.id}`}><img src={result.imageUrl} className="search-img"/></Link>
             </div>
           ))

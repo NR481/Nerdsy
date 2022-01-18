@@ -46,7 +46,7 @@ const EditProduct = ({ id, showModal, editName, editPrice, editDescription, edit
 
     return (
         <div >
-            <ul>
+            <ul className="edit-prod-errors">
                 {errors.length > 0 &&
                     errors.map(error => (
                         <li key={error}>{error}</li>
