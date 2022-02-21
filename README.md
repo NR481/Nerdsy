@@ -25,8 +25,8 @@ Nerdsy is an Etsy clone for consumers interested in their favorite nerdy brands.
 
 ![shopping-cart](https://github.com/NR481/Nerdsy/blob/main/react-app/public/shopping-cart.png)
 
-## Created by:
-[Gabriel Aspuria](https://github.com/GabrielAspuria)<br>
-[Jedd Basden](https://github.com/Jeddbasden)<br>
-[Zachery Estefano](https://github.com/zestefano)<br>
-[Nick Rogers](https://github.com/NR481)<br>
+## Contributors:
+- [Gabriel Aspuria](https://github.com/GabrielAspuria)<br>
+- [Jedd Basden](https://github.com/Jeddbasden)<br>
+- [Zachery Estefano](https://github.com/zestefano)<br>
+- [Nick Rogers](https://github.com/NR481)<br>
