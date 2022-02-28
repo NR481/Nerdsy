@@ -1,21 +1,19 @@
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { updateShoppingCart } from "../store/shoppingCart"
-import { removeFromCart } from "../store/shoppingCart"
 
 const CartItem = ({ item, cart, product, handleDelete }) => {
   const [quantity, setQuantity] = useState(item.quantity)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log("!!!!QUANTITY!!!!", quantity)
     dispatch(updateShoppingCart(item?.id, quantity, cart?.id))
-  }, [dispatch, quantity])
+  }, [dispatch, quantity, item?.id, cart?.id])
 
   return (
     <span className="item-span" key={item?.id}>
       <div className="item-image-div">
-        <img id="item-image" src={product?.imageUrl} />
+        <img id="item-image" src={product?.imageUrl} alt="item"/>
       </div>
       <div className="item-content">
         <div className="item-details">

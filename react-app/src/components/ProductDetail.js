@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { allProducts } from "../store/products";
 import { addToCart } from "../store/shoppingCart";
 import Comments from "./Comments";
 import EditProductModal from "./editProduct/editProductModal";
 import './css/ProductDetail.css'
-import ShoppingCartModal from "./ShoppingCartModal";
 
 const ProductDetail = () => {
-  const history = useHistory()
   const productObj = useSelector(state => state.products);
   const user = useSelector(state => state.session.user);
   const [quantity, setQuantity] = useState(1);
@@ -30,7 +28,7 @@ const ProductDetail = () => {
     <div>
       <div className="detail-container">
         <h1 className="product-name">{product?.name}</h1>
-        <img src={product?.imageUrl} alt='product image' className="product-img" />
+        <img src={product?.imageUrl} alt='product' className="product-img" />
         <p className="description">{product?.description}</p>
         <p className="product-price">{`$${product?.price.toFixed(2)}`}</p>
         {user?.id === product?.userId &&

@@ -1,6 +1,5 @@
 import { useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { productComments } from "../store/comments";
 import { allUsers } from "../store/session";
 import { addNewComment } from "../store/comments";

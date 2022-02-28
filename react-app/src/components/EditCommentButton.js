@@ -22,13 +22,7 @@ const EditCommentButton = ({ user, signedInUser, comment, rating, showModal }) =
     // setShowForm(!showForm)
     showModal(false)
   }
-
-  const handleClick = (e) => {
-    e.preventDefault()
-    // setShowForm(!showForm)
-  }
-
-
+  
   return (
     <>
       {/* {user?.id === signedInUser?.id &&

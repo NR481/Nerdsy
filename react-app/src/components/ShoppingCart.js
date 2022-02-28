@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getShoppingCart, removeFromCart } from "../store/shoppingCart";
@@ -19,11 +19,11 @@ const ShoppingCart = ({ setModal }) => {
     dispatch(allProducts());
     dispatch(getShoppingCart(user?.id))
 
-  }, [dispatch])
+  }, [dispatch, user?.id])
 
   const handlePurchase = (cart) => {
     return dispatch(emptyCart(cart.id))
-  } 
+  }
 
   const handleDelete = (product) => {
     return dispatch(removeFromCart(product, cart?.id))

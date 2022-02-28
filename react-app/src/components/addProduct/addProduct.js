@@ -13,7 +13,6 @@ const AddProduct = ({ showModal }) => {
     const [price, setPrice] = useState('')
     const [description, setDescription] = useState('')
     const [imageUrl, setImageUrl] = useState('')
-    const [rating, setRating] = useState('')
     const [category, setCategory] = useState('')
     const [franchise, setFranchise] = useState('')
     const [errors, setErrors] = useState([])

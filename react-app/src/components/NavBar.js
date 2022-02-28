@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './SearchBar';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './css/Navbar.css'
 import ShoppingCartModal from './ShoppingCartModal';
@@ -11,7 +11,6 @@ import LoginFormModal from './auth/LoginFormModal';
 import SubNavBar from './SubNavBar';
 
 const NavBar = ({ email, password }) => {
-  const history = useHistory()
   const user = useSelector(state => state.session.user)
   return (
     <>

@@ -39,5 +39,49 @@
     bottom: 25px;
     left: 15px;
     margin-left: 10px;
-    color: #3724CE
+    color: #3724CE;
 }
+
+.footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    height: 80px;
+    background: linear-gradient(to right, #192122, #575856);
+    color: white;
+    font-family: 'Jost', sans-serif;
+  }
+
+.footer-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.footer-img {
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    filter: invert(100%) sepia(16%) saturate(7463%) hue-rotate(222deg) brightness(119%) contrast(115%);
+  }
+
+  .single-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-icons {
+    display: flex;
+    margin-left: -5px;
+  }
+
+  .git-links {
+    height: 38px;
+    width: 55px;
+  }
+
+  .linkedin-links {
+    width: 45px;
+    height: 43px;
+    margin: 3px 0 0 -10px;
+  }

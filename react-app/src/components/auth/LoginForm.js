@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { login, demoUser } from '../../store/session';
+import { login } from '../../store/session';
 import '../css/LoginForm.css'
 
 const LoginForm = ({ setModal }) => {

@@ -11,7 +11,6 @@ const EditProduct = ({ id, showModal, editName, editPrice, editDescription, edit
     const [price, setPrice] = useState(editPrice)
     const [description, setDescription] = useState(editDescription)
     const [imageUrl, setImageUrl] = useState(editImageUrl)
-    const [rating, setRating] = useState(editRating)
     const [category, setCategory] = useState(editCategory)
     const [franchise, setFranchise] = useState(editFranchise)
     const [errors, setErrors] = useState([])
