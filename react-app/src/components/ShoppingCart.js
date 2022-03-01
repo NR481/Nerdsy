@@ -38,6 +38,9 @@ const ShoppingCart = ({ setModal }) => {
         <div className="items-amount">
           <h3>ITEMS ({cartItems?.length})</h3>
         </div>
+        {cartItems?.length === 0 && (
+          <h3 className="no-items">No Items Added Yet!</h3>
+        )}
         {cartItems?.map((item) => {
           const id = item.productId;
           const product = productObj[id];
@@ -53,8 +56,7 @@ const ShoppingCart = ({ setModal }) => {
       </div>
       <div className="checkout">
         <div className="cart-total">
-          <h2>Total:</h2>
-          <h2> $ {cart?.total}</h2>
+          <h2>{`Total: $${cart?.total}`}</h2>
         </div>
         <div className="checkout-buttons">
           <button
@@ -69,7 +71,7 @@ const ShoppingCart = ({ setModal }) => {
             id="checkout-button"
             type="button"
             onClick={(e) => {
-              alert("You bought your items!")
+              alert("Thanks for your purchase!")
               history.push('/')
               setModal(false)
               handlePurchase(cart)

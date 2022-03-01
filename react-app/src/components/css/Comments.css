@@ -12,13 +12,13 @@ div.user-comment {
 .title-comment {
     font-family: 'Jost', sans-serif;
     font-size: 30px;
-    padding: 10px;
+    padding: 20px;
     font-weight: bold;
-    margin-left: 30px;
 }
 
 form {
     padding: 10px;
+    margin-left: -150px;
 }
 
 .edit-comment-button {

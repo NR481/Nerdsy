@@ -55,8 +55,6 @@ const Comments = ({ product }) => {
         return +comment.productId === +product?.id
     });
 
-    console.log("RATING:",comments)
-
     return (
         <>
             <div className="whole-comment">

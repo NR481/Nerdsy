@@ -9,11 +9,18 @@
   display: flex;
   height: 100%;
   flex-direction: column;
+  font-family: 'Jost', sans-serif;
 }
 
+.no-items {
+  font-family: 'Audiowide', sans-serif;
+  margin: 200px auto;
+  font-size: 25px;
+  color: #3724CE;
+}
 
 .shopping-cart-title {
-  height: 50px; 
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,13 +28,13 @@
   position: sticky;
   background: linear-gradient(to right, #192122, #575856);
   top: 0px;
-
+  padding: 10px;
 }
 
 #shopping-cart-title {
   font-size: 35px;
-  color: #3724CE;
   font-family: 'Audiowide', cursive;
+  color: #E2E3E5;
 }
 
 .item-span {
@@ -128,18 +135,20 @@ price-element {
 .cart-total {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center;
+  width: 95%;
   height: auto;
   position: sticky;
   bottom: 0px;
   margin: 0px;
   font-family: 'Audiowide', cursive;
+  padding: 0 20px 10px 0;
 }
 
 .items-amount {
   font-family: 'Audiowide', cursive;
   background: linear-gradient(to bottom, #E2E3E5, #c4c4c4da);
+  padding: 10px;
 }
 
 .checkout {
@@ -153,7 +162,7 @@ price-element {
   bottom: 0px;
   background: linear-gradient(to bottom, #E2E3E5, #c4c4c4da);
   font-family: 'Audiowide', cursive;
-  padding: 2px;
+  padding: 10px;
 }
 
 #checkout-button {
@@ -166,6 +175,7 @@ price-element {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
+  width: 96%;
   margin-top: 6px;
+  padding: 0 20px 10px 0;
 }

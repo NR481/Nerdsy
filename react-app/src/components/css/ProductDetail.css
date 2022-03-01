@@ -8,11 +8,11 @@ body {
   display: grid;
   grid-template-columns:  700px 500px;
   grid-template-rows: repeat(6,75px);
-  padding: 80px;
-  margin-left: 100px;
+  padding-top: 80px;
   font-family: 'Jost', sans-serif;
   line-height: 20px;
   justify-content: center;
+  width: 100%;
 }
 
 .product-img {
