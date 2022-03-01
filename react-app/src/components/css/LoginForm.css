@@ -14,15 +14,20 @@
 .login-fields {
   display: flex;
   flex-direction: column;
-  margin: 15px;
+  margin: 20px;
+}
+
+.login-fields > label {
+  margin: 5px;
 }
 
 .elements-container {
   width: 300px;
+  margin: 0 auto;
 }
 
 .login-button {
-  margin: 15px;
+  margin-top: 20px;
   height: 30px;
   background-color: #3724CE;
   border: none;

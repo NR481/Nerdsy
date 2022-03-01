@@ -16,9 +16,19 @@ div.user-comment {
     font-weight: bold;
 }
 
-form {
-    padding: 10px;
+form.add-comment {
+    padding: 20px 0 40px;
     margin-left: -150px;
+    display: flex;
+    align-items: center;
+}
+
+.add-comment > label {
+    padding: 10px;
+}
+
+.add-comment > button {
+    margin-left: 10px;
 }
 
 .edit-comment-button {
